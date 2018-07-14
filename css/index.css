@@ -1,0 +1,428 @@
+/*! minireset.css v0.0.3 | MIT License | github.com/jgthms/minireset.css */
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+ul {
+  list-style: none;
+}
+button,
+input,
+select,
+textarea {
+  margin: 0;
+}
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+img,
+embed,
+iframe,
+object,
+audio,
+video {
+  height: auto;
+  max-width: 100%;
+}
+iframe {
+  border: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td,
+th {
+  padding: 0;
+  text-align: left;
+}
+@font-face {
+  font-family: "PINGFANGBOLD";
+  src: url("../font/PINGFANGBOLD.TTF");
+}
+@font-face {
+  font-family: "PINGFANGEXTRALIGHT";
+  src: url("../font/PINGFANGEXTRALIGHT.TTF");
+}
+@font-face {
+  font-family: "PINGFANGHEAVY";
+  src: url("../font/PINGFANGHEAVY.TTF");
+}
+@font-face {
+  font-family: "PINGFANGLIGHT";
+  src: url("../font/PINGFANGLIGHT.TTF");
+}
+@font-face {
+  font-family: "PINGFANGMEDIUM";
+  src: url("../font/PINGFANGMEDIUM.TTF");
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.tan-wrap {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1111;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+.tan-wrap .tan-inner {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "PINGFANGMEDIUM";
+  font-weight: bold;
+  overflow: hidden;
+  width: 440px;
+  height: 480px;
+  background: #ffffff;
+  border-radius: 10px;
+}
+.tan-wrap .tan-inner .tan-top {
+  padding: 30px;
+}
+.tan-wrap .tan-inner .tan-top p {
+  font-size: 14px;
+  color: #666666;
+  font-weight: lighter;
+}
+.tan-wrap .tan-inner .tan-top p span.newpws {
+  color: red;
+}
+.tan-wrap .tan-inner .tan-top .title {
+  font-size: 18px;
+  color: #333333;
+}
+.tan-wrap .tan-inner .tan-top .line {
+  height: 1px;
+  border-bottom: #eeeeee solid 1px;
+  margin: 30px 0;
+}
+.tan-wrap .tan-inner .tan-top input {
+  margin: 20px 0;
+  display: block;
+  width: 100%;
+  height: 35px;
+}
+.tan-wrap .tan-inner .tan-bottom {
+  border: solid 1px #eeeeee;
+  width: 100%;
+  font-size: 0;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  margin: 0;
+}
+.tan-wrap .tan-inner .tan-bottom p {
+  display: inline-block;
+  width: 50%;
+  font-size: 10px;
+  color: #666666;
+}
+.tan-wrap .tan-inner .tan-bottom p:first-of-type {
+  border-right: solid 1px #eeeeee;
+  color: #1ea0e3;
+}
+header {
+  width: 100%;
+  height: 80px;
+  background: -webkit-linear-gradient(0deg, #1ea0e3, #32b5ee, #35bcf0);
+  position: relative;
+  z-index: 200;
+  box-shadow: 0px 3px 10px rgba(102, 102, 102, 0.3);
+}
+header .logo {
+  float: left;
+  height: 50px;
+  margin: 15px 0;
+  width: 341px;
+  margin-left: 30px;
+  background: url("../img/logo-title.png") no-repeat 0 0;
+}
+header .menus {
+  height: 80px;
+}
+header .menus ul {
+  height: 80px;
+  overflow: hidden;
+  margin-left: 494px;
+}
+header .menus ul li {
+  cursor: pointer;
+  font-family: "PINGFANGBOLD";
+  height: 80px;
+  float: left;
+  line-height: 80px;
+  margin-left: 8%;
+  color: #eeeeee;
+  font-size: 18px;
+}
+header .menus ul li:first-of-type {
+  margin-left: 0;
+}
+header .menus ul li:first-of-type::before {
+  background-image: url("../img/data-hide.png");
+}
+header .menus ul li:first-of-type:hover::before {
+  background-image: url("../img/data.png");
+}
+header .menus ul li:nth-of-type(2)::before {
+  background-image: url("../img/equipment-hide.png");
+}
+header .menus ul li:nth-of-type(2):hover::before {
+  background-image: url("../img/equipment.png");
+}
+header .menus ul li:nth-of-type(3)::before {
+  background-image: url("../img/system-hide.png");
+}
+header .menus ul li:nth-of-type(3):hover::before {
+  background-image: url("../img/system.png");
+}
+header .menus ul li::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+header .menus ul li:hover {
+  border-bottom: solid 4px #ffffff;
+  color: #ffffff;
+}
+header .menus ul li.activelis {
+  border-bottom: solid 4px #ffffff;
+  font-weight: bold;
+  color: #ffffff;
+}
+header .menus ul li.data::before {
+  background-image: url("../img/data.png");
+}
+header .menus ul li.equipment::before {
+  background-image: url("../img/equipment.png");
+}
+header .menus ul li.system::before {
+  background-image: url("../img/system.png");
+}
+header .menus ul li.clickActive {
+  border-bottom: solid 4px #ffffff;
+  color: #ffffff;
+}
+header .login {
+  user-select: none;
+  position: absolute;
+  top: 0;
+  right: 46px;
+  line-height: 80px;
+  color: #ffffff;
+  font-size: 14px;
+  font-family: "PINGFANGMEDIUM";
+}
+header .login img {
+  width: 40px;
+  height: 40px;
+  vertical-align: middle;
+  background-color: #ffffff;
+  border-radius: 50%;
+}
+header .login span {
+  cursor: pointer;
+  padding: 0 10px;
+}
+header .login span img {
+  width: 10px;
+  height: 10px;
+  background: transparent;
+  border: none;
+  margin-left: 15px;
+}
+header .login-tan {
+  user-select: none;
+  display: none;
+  position: absolute;
+  right: 43px;
+  top: 61px;
+  width: 96px;
+  height: 80px;
+  background: #ffffff;
+  border-radius: 5px;
+  box-shadow: 0 5px 40px 15px rgba(153, 153, 153, 0.2);
+}
+header .login-tan p {
+  font-size: 12px;
+  line-height: 3;
+  text-align: center;
+}
+header .login-tan p::before {
+  content: "";
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-repeat: no-repeat;
+  vertical-align: middle;
+}
+header .login-tan p:first-of-type::before {
+  background-image: url("../img/logins.png");
+  background-position: 1px -24px;
+}
+header .login-tan p:first-of-type:hover {
+  color: #1ea0e3;
+}
+header .login-tan p:first-of-type:hover::before {
+  background-position: 1px 3px;
+}
+header .login-tan p:nth-of-type(2)::before {
+  background-image: url("../img/logins.png");
+  background-position: -25px -24px;
+}
+header .login-tan p:nth-of-type(2):hover {
+  color: #1ea0e3;
+}
+header .login-tan p:nth-of-type(2):hover::before {
+  background-position: -25px 3px;
+}
+section {
+  margin-top: -80px;
+  position: relative;
+  height: 100%;
+}
+section .wrapleft {
+  box-shadow: 6px 0px 10px rgba(102, 102, 102, 0.3);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  height: 100%;
+  width: 230px;
+  background-color: #30333f;
+  padding-top: 80px;
+}
+section .wrapleft .left-line {
+  height: 15px;
+}
+section .wrapleft .tree li {
+  cursor: pointer;
+  user-select: none;
+}
+section .wrapleft .tree li span {
+  display: inline-block;
+  width: 230px;
+  background: #232830;
+  margin: 0;
+  height: 47px;
+  line-height: 47px;
+  font-size: 16px;
+  color: #ffffff;
+}
+section .wrapleft .tree li span::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  margin: 0 10px 0 16px;
+  display: inline-block;
+  vertical-align: middle;
+  background: url("../img/equipment1-hide.png") no-repeat;
+}
+section .wrapleft .tree li span.arra::after {
+  content: "";
+  width: 18px;
+  height: 18px;
+  margin-left: 70px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 6px;
+  background-image: url("../img/arr.png");
+  background-repeat: no-repeat;
+}
+section .wrapleft .tree li span.arrb::after {
+  content: "";
+  width: 18px;
+  height: 18px;
+  margin-left: 60px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 6px;
+  background-image: url("../img/arr.png");
+  background-repeat: no-repeat;
+  transform: rotate(90deg);
+}
+section .wrapleft .tree li ul {
+  display: none;
+}
+section .wrapleft .tree li ul li {
+  height: 47px;
+  line-height: 47px;
+  color: #ffffff;
+  padding-left: 45px;
+}
+section .wrapright {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  padding-top: 80px;
+  padding-left: 230px;
+  background-color: #eeeeee;
+}
+section .wrapright .page-place {
+  height: 43px;
+  line-height: 43px;
+  padding-left: 30px;
+  font-size: 14px;
+  color: #666666;
+}
+section .wrapright .page-wrap {
+  width: 100%;
+  height: 100%;
+  padding: 30px 30px 30px 30px;
+}
+section .wrapright .page-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  box-shadow: 0px 0px 15px 5px rgba(102, 102, 102, 0.1);
+}

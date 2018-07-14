@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>智慧社区云平台</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div class="tan-wrap" id="tan_wrap">
+        <div class="tan-inner" id="tan_inner">
+            <div class="tan-top">
+                <span class="title">
+                    修改密码
+                </span>
+                <p class="line"></p>
+                <p>请输入原始密码：</p>
+                <input id="oldPwd" type="password">
+                <p>请输入新密码：
+                    <span></span>
+                </p>
+                <input id="newp" type="password">
+                <p>请重新输入新密码：
+                    <span id="newpws" class="newpws"></span>
+                </p>
+                <input id="newsp" type="password">
+            </div>
+            <div class="tan-bottom">
+                <p id="queding">确定</p>
+                <p id="quxiao">取消</p>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div class="logo">
+        </div>
+        <div class="menus">
+            <ul id="menuUl">
+            </ul>
+        </div>
+        <div class="login">
+            <img id="imgUrl" src="" alt="">
+            <span id="logins">
+                <a id="userName">管理员</a>
+                <img id="login-arr" src="./img/arr.png" alt="">
+            </span>
+        </div>
+        <div class="login-tan" id="login-tan" key="off">
+            <p id="updatePassword">修改密码</p>
+            <p id="tuichu">退出登录</p>
+        </div>
+    </header>
+    <section>
+        <div class="wrapleft">
+            <div class="left-line">
+            </div>
+            <ul class="tree" id="wrap_left">
+            </ul>
+        </div>
+        <div class="wrapright">
+            <div class="page-wrap" id="page_wrap">
+                <!-- <iframe style="visibility:hidden;" id="ifPage" src="" ></iframe> -->
+            </div>
+        </div>
+    </section>
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/md5.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

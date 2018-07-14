@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/standard.css">
+</head>
+
+<body>
+    <div class="tan-wrap" id="tan_wrap">
+        <div class="basic-mod" id="basic_mod">
+            <div class="basic-mod-top">
+                <p class="basic-mod-title">修改信息</p>
+                <p class="basic-mod-name">项目名称</p>
+                <select name="" id="">
+                    <option value="">潼湖小镇1</option>
+                    <option value="">潼湖小镇2</option>
+                    <option value="">潼湖小镇3</option>
+                    <option value="">潼湖小镇4</option>
+                </select>
+                <p>设备系统：</p>
+                <select name="" id="">
+                    <option value="">水质监测系统1</option>
+                    <option value="">水质监测系统2</option>
+                    <option value="">水质监测系统3</option>
+                    <option value="">水质监测系统4</option>
+                </select>
+                <p>设备名称：</p>
+                <input type="text" name="" id="">
+                <p>设备编码：</p>
+                <input type="text" name="" id="">
+                <p>设备序号：</p>
+                <input type="text" name="" id="">
+                <p>安装位置：</p>
+                <input type="text" name="" id="">
+            </div>
+            <div class="basic_mod_bottom">
+                <input type="button" id="basic_mod_yes" value="确定">
+                <input type="button" id="basic_mod_no" value="取消">
+            </div>
+        </div>
+        <div class="basic-add" id="basic_add">
+            <div class="basic-add-top">
+                <p class="basic-add-title">新增信息</p>
+                <ul>
+                    <li>
+                        <p>项目名称：</p>
+                        <select name="" id="">
+                            <option value="">潼湖小镇</option>
+                            <option value="">潼湖小镇</option>
+                            <option value="">潼湖小镇</option>
+                            <option value="">潼湖小镇</option>
+                        </select>
+                    </li>
+                    <li>
+                        <p>系统设备：</p>
+                        <select name="" id="">
+                            <option value="">水质监测系统</option>
+                            <option value="">水质监测系统</option>
+                            <option value="">水质监测系统</option>
+                            <option value="">水质监测系统</option>
+                        </select>
+                    </li>
+                    <li>
+                        <p>设备名称：</p>
+                        <input type="text">
+                    </li>
+                    <li>
+                        <p>设备编码：</p>
+                        <input type="text">
+                    </li>
+                    <li>
+                        <p>设备序号：</p>
+                        <input type="text">
+                    </li>
+                    <li>
+                        <p>厂商：</p>
+                        <input type="text">
+                    </li>
+                    <li>
+                        <p>安装日期：</p>
+                        <input type="text">
+                    </li>
+                    <li>
+                        <p>使用日期：</p>
+                        <input type="text">
+                    </li>
+                </ul>
+            </div>
+            <div class="basic-add-bottom">
+                <input type="button" id="basic_add_yes" value="确定">
+                <input type="button" id="basic_add_no" value="取消">
+            </div>
+        </div>
+        <div class="basic-del" id="basic_del">
+            <div class="basic-del-top">
+                <p class="basic-del-title">确定执行此操作？</p>
+            </div>
+            <div class="basic-del-bottom">
+                <input type="button" id="basic_del_yes" value="确定">
+                <input type="button" id="basic_del_no" value="取消">
+            </div>
+        </div>
+    </div>
+    <div class="wrap">
+        <header>
+            标准管理
+        </header>
+        <section>
+            <div class="top1">
+                <span>系统</span>
+                <select>
+                    <option value="">全部系统</option>
+                    <option value="">环境监测系统</option>
+                    <option value="">水质监测系统</option>
+                    <option value="">智能井盖检测系统</option>
+                    <option value="">洪涝检测系统</option>
+                </select>
+                <span>标准ID</span>
+                <input class="text" type="text" placeholder="请输入标准ID">
+                <span>标准名称</span>
+                <input class="text" type="text" placeholder="请输入标准名称">
+                <input type="button" value="查询">
+                <input type="button" value="新增" id="newAdd">
+            </div>
+            <div class="tables">
+                <ul class="titles">
+                    <li>
+                        <span>
+                            <input type="checkbox" name="" id="">序号</span>
+                        <span>系统名称</span>
+                        <span>标准名称</span>
+                        <span>标准ID</span>
+                        <span>上限值</span>
+                        <span>下限值</span>
+                        <span>操作</span>
+                    </li>
+                </ul>
+                <ul class="tableContent" id="tableContent">
+                    <li>
+                        <span>
+                            <input type="checkbox" name="" id="">1
+                        </span>
+                        <span>环境监测系统</span>
+                        <span>DTU</span>
+                        <span>001</span>
+                        <span>&nbsp;</span>
+                        <span>&nbsp;</span>
+                        <span>
+                            <a class="mod">修改</a>
+                            <a class="del">删除</a>
+                        </span>
+                    </li>
+                    <li>
+                            <span>
+                                <input type="checkbox" name="" id="">2
+                            </span>
+                            <span>配电系统</span>
+                            <span>电压</span>
+                            <span>002</span>
+                            <span>250V</span>
+                            <span>180V</span>
+                            <span>
+                                <a class="mod">修改</a>
+                                <a class="del">删除</a>
+                            </span>
+                        </li>
+                </ul>
+            </div>
+            <div class="menu-bottom-wrap">
+                <div class="menu-bototm">
+                    <input type="button" class="basic-first" id="basic_first" value="首页">
+                    <input type="button" id="basic_prev" class="basic_prev" value="上一页">
+                    <span class="pageIndex" id="pageIndex"></span>
+                    <input type="button" id="basic_next" class="basic_next" value="下一页">
+                    <input type="button" id="basic_end" value="末页">
+                </div>
+            </div>
+
+        </section>
+    </div>
+    <script src="../js/common.js"></script>
+    <script src="./js/standard.js"></script>
+</body>
+
+</html>

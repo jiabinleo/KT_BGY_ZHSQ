@@ -1,0 +1,196 @@
+/*! minireset.css v0.0.3 | MIT License | github.com/jgthms/minireset.css */
+html,
+body,
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+}
+ul {
+  list-style: none;
+}
+button,
+input,
+select,
+textarea {
+  margin: 0;
+}
+html {
+  box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+img,
+embed,
+iframe,
+object,
+audio,
+video {
+  height: auto;
+  max-width: 100%;
+}
+iframe {
+  border: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+td,
+th {
+  padding: 0;
+  text-align: left;
+}
+@font-face {
+  font-family: "PINGFANGEXTRALIGHT";
+  src: url("../../font/PINGFANGHEAVY.TTF");
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+}
+body {
+  position: relative;
+}
+.wrap {
+  padding: 0 30px;
+  width: 100%;
+  height: 100%;
+}
+header {
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+  font-size: 22px;
+  color: #333333;
+  border-bottom: 1px solid #eeeeee;
+  font-weight: bold;
+  overflow: hidden;
+  font-family: "PINGFANGEXTRALIGHT";
+}
+header::after {
+  content: "Well cover monitoring";
+  text-transform: Uppercase;
+  display: inline-block;
+  font-size: 38px;
+  color: #999999;
+  opacity: 0.2;
+  text-indent: -75px;
+}
+section .top1 {
+  overflow: hidden;
+  height: 30px;
+  font-size: 12px;
+  line-height: 30px;
+  margin-top: 30px;
+}
+section .top1 span {
+  margin-left: 30px;
+  float: left;
+}
+section .top1 span:first-of-type {
+  margin-left: 0;
+}
+section .top1 span.equin {
+  display: none;
+}
+section .top1 select {
+  vertical-align: middle;
+  height: 30px;
+  margin-left: 5px;
+  float: left;
+}
+section .top1 select.alleqi {
+  float: right;
+}
+section .top1 select.equi {
+  display: none;
+}
+section .top1 input {
+  height: 30px;
+  width: 130px;
+  margin-left: 30px;
+  outline: none;
+  float: left;
+}
+section .top1 input.sbname {
+  background: none;
+  border: solid 1px #d7d7d7;
+  width: 130px;
+  color: #19a8fb;
+}
+section .top1 input.seach {
+  color: #ffffff;
+  border: none;
+  background: -webkit-linear-gradient(90deg, #1ea0e3, #32b5ee, #35bcf0);
+}
+section .top2 {
+  overflow: hidden;
+  width: 1500px;
+}
+section .top2 .top2_left {
+  margin: 15px;
+  width: 100%;
+  float: left;
+  margin-top: 50px;
+  margin-left: 80px;
+}
+section .top2 .top2_left input {
+  margin-left: 30px;
+}
+section .main {
+  float: left;
+  margin-left: -70px;
+}
+section .message {
+  float: right;
+  margin-right: 83px;
+  margin-top: 48px;
+}
+section .message ul {
+  margin: 10px;
+}
+section .message ul li {
+  width: 260px;
+  line-height: 2;
+}
+section .message ul li span {
+  width: 100px;
+  display: inline-block;
+}
+section .message ul li span:last-of-type {
+  width: 160px;
+}

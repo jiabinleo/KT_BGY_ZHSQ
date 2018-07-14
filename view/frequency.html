@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>智慧社区平台</title>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script src="./js/laydate/laydate.js"></script>
+    <link rel="stylesheet" href="./css/frequency.css">
+</head>
+
+<body>
+        <div class="tan-wrap" id="tan_wrap">
+                <div class="basic-mod" id="basic_mod">
+                    <div class="basic-mod-top">
+                        <span>选择频次</span>
+                        <select name="" id="">
+                            <option value="">1月/次</option>
+                            <option value="">1季度/次</option>
+                            <option value="">1年/次</option>
+                        </select>
+                    </div>
+                    <div class="basic_mod_bottom">
+                        <input type="button" id="basic_mod_yes" value="确定">
+                        <input type="button" id="basic_mod_no" value="取消">
+                    </div>
+                </div>
+            </div>
+    <div class="wrap">
+        <header>
+            频次管理
+        </header>
+        <section>
+            <div class="top1">
+                <span>项目名称</span>
+                <select>
+                    <option value="">全部项目</option>
+                    <option value="">潼湖小区</option>
+                    <option value="">创新科技园</option>
+                </select>
+                <span>设备系统</span>
+                <select>
+                    <option value="">全部系统</option>
+                </select>
+                <span>设备名称</span>
+                <select>
+                    <option value="">全部设备</option>
+                    <option value="">水质设备</option>
+                    <option value="">空气设备</option>
+                </select>
+                <span>频次</span>
+                <select>
+                    <option value="">全部频次</option>
+                    <option value="">全部频次</option>
+                    <option value="">全部频次</option>
+                </select>
+                <span>状态</span>
+                <select>
+                    <option value="">全部状态</option>
+                    <option value="">全部状态</option>
+                    <option value="">全部状态</option>
+                </select>
+                <input class="peizhi" type="button" value="配置">
+                <input class="ml10" type="button" value="查询">
+                <input id="ext" class="ext" type="button" value="导出">
+            </div>
+
+            <div class="tables">
+                <ul class="titles">
+                    <li>
+                        <span>
+                            <input type="checkbox" name="" id="">序号</span>
+                        <span>项目名称</span>
+                        <span>设备系统</span>
+                        <span>设备名称</span>
+                        <span>设备编码</span>
+                        <span>设备安装位置</span>
+                        <span>保养频次</span>
+                        <span>操作</span>
+                    </li>
+                </ul>
+                <ul class="tableContent" id="tableContent">
+                    <li>
+                        <span>
+                            <input type="checkbox" name="" id="">1
+                        </span>
+                        <span>潼湖小镇</span>
+                        <span>环境监测系统</span>
+                        <span>景观自动监测站</span>
+                        <span>THXZ-02-01</span>
+                        <span>广场A区</span>
+                        <span>1月/次</span>
+                        <span>
+                            <a class="con">配置</a>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu-bottom-wrap">
+                <div class="menu-bototm">
+                    <input type="button" class="basic-first" id="basic_first" value="首页">
+                    <input type="button" id="basic_prev" class="basic_prev" value="上一页">
+                    <span class="pageIndex" id="pageIndex"></span>
+                    <input type="button" id="basic_next" class="basic_next" value="下一页">
+                    <input type="button" id="basic_end" value="末页">
+                </div>
+            </div>
+
+        </section>
+    </div>
+    <script src="../js/common.js"></script>
+    <script src="./js/frequency.js"></script>
+</body>
+
+</html>

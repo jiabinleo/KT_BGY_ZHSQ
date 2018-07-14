@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>智慧社区平台</title>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script src="./js/laydate/laydate.js"></script>
+    <link rel="stylesheet" href="./css/maintenanceTask.css">
+</head>
+
+<body>
+    <div class="tan-wrap" id="tan_wrap">
+        <div class="tan-xiangqing" id="tan-xiangqing">
+            <span class="close" id="close">X</span>
+            <div class="tan-title">
+                <div class="tan-left">
+                    <span class="mai-details xq-acitve">任务详情</span>
+                </div>
+                <div class="tan-right">
+                    <span class="mai-arguments">保养参数</span>
+                </div>
+            </div>
+            <div class="tan-content">
+                <div class="tan-content-left" id="tan-content-left">
+                    <ul>
+                        <li>
+                            <span>项目名称：</span>
+                            <span>潼湖小镇</span>
+                        </li>
+                        <li>
+                            <span>设备系统：</span>
+                            <span>环境监测系统</span>
+                        </li>
+                        <li>
+                            <span>设备名称：</span>
+                            <span>景观自动监测站</span>
+                        </li>
+                        <li>
+                            <span>设备安装区域：</span>
+                            <span>广场A区域</span>
+                        </li>
+                        <li>
+                            <span>设备编号：</span>
+                            <span>THXZ-02-01</span>
+                        </li>
+                        <li>
+                            <span>保养频次：</span>
+                            <span>1月/次</span>
+                        </li>
+                        <li>
+                            <span>开始时间：</span>
+                            <span>2018年04月27日</span>
+                        </li>
+                        <li>
+                            <span>结束时间：</span>
+                            <span>2018年05月27日</span>
+                        </li>
+                        <li>
+                            <span>责任人：</span>
+                            <span>李达康</span>
+                        </li>
+                        <li>
+                            <span>保养状态：</span>
+                            <span>未保养</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="tan-content-right" id="tan-content-right">
+                    <ul>
+                        <li>
+                            <span>外观是否完整:</span>
+                            <span>正常</span>
+                        </li>
+                        <li>
+                            <span>DTU是否正常:</span>
+                            <span>损坏</span>
+                        </li>
+                        <li>
+                            <span>电源是否正常:</span>
+                            <span>需检修</span>
+                        </li>
+                        <li>
+                            <span>温度传感器:</span>
+                            <span>正常</span>
+                        </li>
+                        <li>
+                            <span>湿度传感器：</span>
+                            <span>正常</span>
+                        </li>
+                        <li>
+                            <span>气压传感器：</span>
+                            <span>正常</span>
+                        </li>
+                        <li>
+                            <span>降雨量传感器：</span>
+                            <span>损坏</span>
+                        </li>
+                        <li>
+                            <span>风力风向传感器：</span>
+                            <span>正常</span>
+                        </li>
+                        <li>
+                            <span>显示器：</span>
+                            <span>正常</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrap">
+        <header>
+            保养任务
+        </header>
+        <section>
+            <div class="top1">
+                <span>项目名称</span>
+                <select class="projectName">
+                </select>
+                <span>设备系统</span>
+                <select class="equi">
+                </select>
+                <span>责任人</span>
+                <input type="text" name="" class="userName" id="userName" placeholder="请输入责任人名称">
+                <span>状态</span>
+                <select class="status" id="status">
+                </select>
+                <span class="m10 ml30">时间</span>
+                <input type="text" class="demo-input date m0" placeholder="请选择日期" id="maintenanceTask1">
+                <span class="m10">至</span>
+                <input type="text" class="demo-input date m0" placeholder="请选择日期" id="maintenanceTask2">
+                <input id="seach" class="ml10" type="button" value="查询">
+                <input id="ext" class="ext" type="button" value="导出">
+            </div>
+
+            <div class="tables">
+                <ul class="titles">
+                    <li>
+                        <span>
+                            <input type="checkbox" name="" id="">序号</span>
+                        <span>项目名称</span>
+                        <span>设备系统</span>
+                        <span>设备编码</span>
+                        <span>设备安装位置</span>
+                        <span>频次</span>
+                        <span>开始时间</span>
+                        <span>结束时间</span>
+                        <span>状态</span>
+                        <span>责任人</span>
+                        <span>操作</span>
+                    </li>
+                </ul>
+                <ul class="tableContent" id="tableContent">
+                    <li>
+                        <span>
+                            <input type="checkbox" name="" id="">1
+                        </span>
+                        <span>潼湖小镇</span>
+                        <span>环境监测系统</span>
+                        <span>THXZ-02-01</span>
+                        <span>广场A区</span>
+                        <span>1月/次</span>
+                        <span>2018.04.27</span>
+                        <span>2018.05.27</span>
+                        <span>未保养</span>
+                        <span>李达康</span>
+                        <span>
+                            <a class="amend">详情</a>
+                        </span>
+                    </li>
+                    <li>
+                        <span>
+                            <input type="checkbox" name="" id="">2
+                        </span>
+                        <span>创新科技园</span>
+                        <span>水质监测系统</span>
+                        <span>水质监测点1</span>
+                        <span>CXKJY-01-01</span>
+                        <span>写字楼A区</span>
+                        <span>1月/次</span>
+                        <span>2018.03.27</span>
+                        <span>2018.04.27</span>
+                        <span>已保养</span>
+                        <span>张三</span>
+                        <span>
+                            <a class="amend ">详情</a>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu-bottom-wrap">
+                <div class="menu-bototm">
+                    <input type="button" class="basic-first" id="basic_first" value="首页">
+                    <input type="button" id="basic_prev" class="basic_prev" value="上一页">
+                    <span class="pageIndex" id="pageIndex"></span>
+                    <input type="button" id="basic_next" class="basic_next" value="下一页">
+                    <input type="button" id="basic_end" value="末页">
+                </div>
+            </div>
+
+        </section>
+    </div>
+    <script src="../js/common.js"></script>
+    <script src="./js/maintenanceTask.js"></script>
+</body>
+
+</html>

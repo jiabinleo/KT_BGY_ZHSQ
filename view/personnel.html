@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script src="../js/md5.js"></script>
+    <link rel="stylesheet" href="./css/personnel.css">
+    <script src="./js/laydate/laydate.js"></script>
+</head>
+
+<body>
+    <div class="tan-wrap" id="tan_wrap">
+        <div class="basic-mod" id="basic_mod">
+            <div class="basic-mod-top">
+                <p class="basic-mod-title">修改信息</p>
+                <ul>
+                    <li>
+                        <p>姓名：</p>
+                        <input type="text" id="mod_name">
+                    </li>
+                    <li>
+                        <p>联系方式：</p>
+                        <input type="text" id="mod_tel">
+                    </li>
+
+                    <li>
+                        <p>部门：</p>
+                        <select class="mod_department" name="" id="mod_department">
+
+                        </select>
+                    </li>
+                    <li>
+                        <p>职位：</p>
+                        <select class="mod_position" name="" id="mod_position">
+                            <option value="" selected="selected">请选择职位</option>
+                        </select>
+                    </li>
+                    <li>
+                        <p>角色：</p>
+                        <select class="mod_part" name="" id="mod_part">
+
+                        </select>
+                    </li>
+                    <li class="mod-projectList">
+                        <p>项目名称：</p>
+                        <div class="mod-projectNameList" id="mod_projectNameList">
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="basic_mod_bottom">
+                <input type="button" id="basic_mod_yes" value="确定">
+                <input type="button" id="basic_mod_no" value="取消">
+            </div>
+        </div>
+        <div class="basic-add" id="basic_add">
+            <div class="basic-add-top">
+                <p class="basic-add-title">新增人员</p>
+                <ul>
+                    <li>
+                        <p>账号：</p>
+                        <input type="text" id="per_user">
+                    </li>
+                    <li>
+                        <p>密码：</p>
+                        <input type="text" id="per_pass">
+                    </li>
+                    <li>
+                        <p>姓名：</p>
+                        <input type="text" id="per_name">
+                    </li>
+                    <li>
+                        <p>联系方式：</p>
+                        <input type="text" id="per_tel">
+                    </li>
+
+                    <li>
+                        <p>部门：</p>
+                        <select class="per_department" name="" id="per_department">
+
+                        </select>
+                    </li>
+                    <li>
+                        <p>职位：</p>
+                        <select class="per_position" name="" id="per_position">
+                            <option value="" selected="selected">请选择职位</option>
+                        </select>
+                    </li>
+                    <li>
+                        <p>角色：</p>
+                        <select class="per_part" name="" id="per_part">
+
+                        </select>
+                    </li>
+                    <li class="projectList">
+                        <p>项目名称：</p>
+                        <div class="projectNameList" id="projectNameList">
+
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="basic-add-bottom">
+                <input type="button" id="basic_add_yes" value="确定">
+                <input type="button" id="basic_add_no" value="取消">
+            </div>
+        </div>
+        <div class="basic-del" id="basic_del">
+            <div class="basic-del-top">
+                <p class="basic-del-title">确定执行此操作？</p>
+            </div>
+            <div class="basic-del-bottom">
+                <input type="button" id="basic_del_yes" value="确定">
+                <input type="button" id="basic_del_no" value="取消">
+            </div>
+        </div>
+    </div>
+    <div class="wrap">
+        <header>
+            人员管理
+        </header>
+        <section>
+            <div class="top1">
+                <span>项目名称</span>
+                <select class="projectName">
+                </select>
+                <span>部门</span>
+                <select class="depart">
+                </select>
+                <span>岗位</span>
+                <select class="position">
+                </select>
+                <span>人员名称</span>
+                <input class="sbname" type="text" placeholder="请输入查询关键字">
+                <input class="seach" id="seach" type="button" value="查询">
+            </div>
+            <div class="top2">
+                <!-- <input type="button" value="修改"> -->
+                <input type="button" id="newAdd" value="新增">
+                <input id="delall" type="button" value="删除">
+            </div>
+            <div class="tables">
+                <ul class="titles">
+                    <li>
+                        <span>
+                            <input type="checkbox" name="" id="title_checkbox">序号</span>
+                        <span>项目名称</span>
+                        <span>人员名称</span>
+                        <span>电话号码</span>
+                        <span>人员部门</span>
+                        <span>人员职位</span>
+                        <span>人员角色</span>
+                        <span>操作</span>
+                    </li>
+                </ul>
+                <ul class="tableContent" id="tableContent">
+                    <li key="1">
+                        <span>
+                            <input type="checkbox" name="xz" id="">1
+                        </span>
+                        <span>潼湖小镇</span>
+                        <span>水质检测系统</span>
+                        <span>A区水质检测设备</span>
+                        <span>01</span>
+                        <span>THXZ-01-01</span>
+                        <span>住宅A区</span>
+                        <span>昆特</span>
+                        <span>2018-03-20</span>
+                        <span>2018-03-20</span>
+                        <span>
+                            <a class="amend">修改</a>
+                            <a class="delete">删除</a>
+                        </span>
+                    </li>
+                    <li key="2">
+                        <span>
+                            <input type="checkbox" name="xz" id="">1
+                        </span>
+                        <span>潼湖小镇</span>
+                        <span>水质检测系统</span>
+                        <span>A区水质检测设备</span>
+                        <span>01</span>
+                        <span>THXZ-01-01</span>
+                        <span>住宅A区</span>
+                        <span>昆特</span>
+                        <span>2018-03-20</span>
+                        <span>2018-03-20</span>
+                        <span>
+                            <a class="amend">修改</a>
+                            <a class="delete">删除</a>
+                        </span>
+                    </li>
+                    <li key="3">
+                        <span>
+                            <input type="checkbox" name="xz" id="">1
+                        </span>
+                        <span>潼湖小镇</span>
+                        <span>水质检测系统</span>
+                        <span>A区水质检测设备</span>
+                        <span>01</span>
+                        <span>THXZ-01-01</span>
+                        <span>住宅A区</span>
+                        <span>昆特</span>
+                        <span>2018-03-20</span>
+                        <span>2018-03-20</span>
+                        <span>
+                            <a class="amend">修改</a>
+                            <a class="delete">删除</a>
+                        </span>
+                    </li>
+                    <li key="4">
+                        <span>
+                            <input type="checkbox" name="xz" id="">1
+                        </span>
+                        <span>潼湖小镇</span>
+                        <span>水质检测系统</span>
+                        <span>A区水质检测设备</span>
+                        <span>01</span>
+                        <span>THXZ-01-01</span>
+                        <span>住宅A区</span>
+                        <span>昆特</span>
+                        <span>2018-03-20</span>
+                        <span>2018-03-20</span>
+                        <span>
+                            <a class="amend">修改</a>
+                            <a class="delete">删除</a>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+            <div class="menu-bottom-wrap">
+                <div class="menu-bototm">
+                    <input type="button" key="1" class="basic-first" id="basic_first" value="首页">
+                    <input type="button" id="basic_prev" class="basic_prev" value="上一页">
+                    <span class="pageIndex" id="pageIndex"></span>
+                    <input type="button" id="basic_next" class="basic_next" value="下一页">
+                    <input type="button" id="basic_end" value="末页">
+                </div>
+            </div>
+
+        </section>
+    </div>
+    <script src="../js/common.js"></script>
+    <script src="./js/personnel.js"></script>
+
+</body>
+
+</html>

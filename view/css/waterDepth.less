@@ -1,0 +1,132 @@
+@import "../../css/reset.less";
+@font-face {
+  font-family: "PINGFANGEXTRALIGHT";
+  src: url("../../font/PINGFANGHEAVY.TTF");
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+}
+body {
+  position: relative;
+}
+.wrap {
+  padding: 0 30px;
+  width: 100%;
+  height: 100%;
+}
+header {
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+  font-size: 22px;
+  color: #333333;
+  border-bottom: 1px solid #eeeeee;
+  font-weight: bold;
+  overflow: hidden;
+  font-family: "PINGFANGEXTRALIGHT";
+  &::after {
+    content: "Water immersion monitoring";
+    text-transform: Uppercase;
+    display: inline-block;
+    font-size: 38px;
+    color: #999999;
+    opacity: 0.2;
+    text-indent: -75px;
+  }
+}
+section {
+  .top1 {
+    overflow: hidden;
+    height: 30px;
+    font-size: 12px;
+    line-height: 30px;
+    margin-top: 30px;
+    span {
+      margin-left: 30px;
+      float: left;
+      &:first-of-type {
+        margin-left: 0;
+      }
+      &.equin {
+        display: none;
+      }
+      &.sbnamen {
+        // display: none;
+      }
+    }
+    select {
+      vertical-align: middle;
+      height: 30px;
+      margin-left: 5px;
+      float: left;
+      &.alleqi {
+        float: right;
+      }
+      &.equi {
+        display: none;
+      }
+      &.sbname {
+        // display: none;
+      }
+    }
+    input {
+      height: 30px;
+      width: 130px;
+      margin-left: 30px;
+      outline: none;
+      float: left;
+      &.sbname {
+        background: none;
+        border: solid 1px #d7d7d7;
+        width: 130px;
+        color: #19a8fb;
+      }
+      &.seach {
+        color: #ffffff;
+        border: none;
+        background: -webkit-linear-gradient(90deg, #1ea0e3, #32b5ee, #35bcf0);
+      }
+    }
+  }
+  .top2{
+    overflow: hidden;
+    width: 1500px;;
+    .top2_left{
+      margin: 15px;
+      width: 100%;
+      float: left;
+      margin-top: 50px;
+      margin-left: 80px;
+      input{
+        margin-left: 30px;
+        }
+      }
+    }
+    .main{
+      float: left;
+      margin-left: -70px;
+    }
+    .message{
+      float: right;
+      margin-right: 83px;
+      margin-top: 48px;
+      ul{
+        margin: 10px;
+        li{
+          width: 260px;
+          line-height: 2;
+          span{
+            width: 100px;
+            display: inline-block;
+            &:last-of-type{
+              width: 160px;
+            }
+          }
+        }
+      }
+    }
+  }
+

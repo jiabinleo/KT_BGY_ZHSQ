@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script src="../js/echarts.min.js"></script>
+    <link rel="stylesheet" href="./css/wellCover.css">
+    <script src="./js/laydate/laydate.js"></script>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            井盖监测
+        </header>
+        <section>
+            <div class="top1">
+                <span>项目名称</span>
+                <select class="projectName">
+                </select>
+                <span class="sbnamen">设备名称</span>
+                <select name="" class="sbname" id="">
+                    <option value="">选择设备名称</option>
+                </select>
+                <input id="seach" class="seach" type="button" value="查询">
+            </div>
+            <div class="top2">
+                <div class="top2_left" id="top2_left">
+                    <input name="1" data-id="alarmAng" checked type="radio">
+                    <label>报警角度</label>
+                    <input name="1" data-id="bgAngle" type="radio">
+                    <label>背景角度</label>
+                    <input name="1" data-id="rainStatu" type="radio">
+                    <label>雨水状态</label>
+                    <input name="1" data-id="voltage" type="radio">
+                    <label>电池电压</label>
+                </div>
+                <div class="main" id="main" style="width: 1200px;height:600px;"></div>
+                <div class="message" id="message"></div>
+            </div>
+        </section>
+    </div>
+    <script src="../js/common.js"></script>
+    <script src="./js/wellCover.js"></script>
+
+</body>
+
+</html>
