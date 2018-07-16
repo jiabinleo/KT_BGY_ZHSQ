@@ -322,7 +322,7 @@ $(() => {
     querybd: function(seach1, seach2, seach3, pageNum, pageSize) {
       $.ajax({
         dataType: "json",
-        url: localhost + "/equipmentBase/getPage",
+        url: localhost + "/equipmentBase/getPage", 
         type: "POST",
         async: false,
         data: {

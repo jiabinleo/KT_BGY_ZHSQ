@@ -123,6 +123,7 @@ $(function() {
       });
       //修改密码
       $("#updatePassword").on("click", function() {
+        $("#newpws").html("");
         $("#tan_wrap").show();
         $("#tan_inner").show();
       });
