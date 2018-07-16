@@ -1,9 +1,8 @@
 $(() => {
-  let localhost = "http://192.168.1.119:8088";
   var my_token = JSON.parse(sessionStorage.getItem("my_token")),
     seach1 = "", //查询条件
     data_json,
-    data_name = "水浸",
+    data_name = "水位高度",
     c = "mm";
   var waterDepth = {
     init: () => {
@@ -82,7 +81,7 @@ $(() => {
         data_name = $(this).attr("data-id");
         switch ($(this).attr("data-id")) {
           case "depth":
-            data_name = "水浸";
+            data_name = "水位高度";
             break;
           default:
             break;

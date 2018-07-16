@@ -6,9 +6,7 @@ $(() => {
     delKey; //删除关键字
   var basic = {
     init: () => {
-      // setTimeout(() => {
         basic.listent();
-      // });
     },
     listent: () => {
       // 项目名称
@@ -94,6 +92,7 @@ $(() => {
             xhr.setRequestHeader("login_token", my_token);
           },
           success: function(data) {
+            console.log(data)
             basic.fenyenum();
             basic.querybd(seach1, seach2, seach3, pageNum, pageSize);
           },

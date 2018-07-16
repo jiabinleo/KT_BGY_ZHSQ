@@ -1,5 +1,4 @@
 $(() => {
-  let localhost = "http://192.168.1.119:8088";
   var my_token = JSON.parse(sessionStorage.getItem("my_token")),
     seach1 = "", //查询条件
     data_json,
@@ -18,6 +17,7 @@ $(() => {
           xhr.setRequestHeader("login_token", my_token);
         },
         success: function(data) {
+          console.log(data)
           if (data.success === "0") {
             for (var i = data.result.length - 1; i >= 0; i--) {
               $(".projectName").prepend(

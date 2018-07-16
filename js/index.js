@@ -3,7 +3,7 @@ $(function() {
   var account = JSON.parse(sessionStorage.getItem("account"));
   var userName = JSON.parse(sessionStorage.getItem("userName"));
   var imgUrl = JSON.parse(sessionStorage.getItem("imgUrl"));
-
+  console.log(my_token)
   var menuNull;
   var indexTop = 0;
   var jsonData;
@@ -143,6 +143,15 @@ $(function() {
               oldPwd: oldPwd
             },
             success: function(data) {
+              console.log(data);
+              if (data.success == "1") {
+                $("#tan-yes").html(data.msg);
+                $("#oldPwd").val("");
+                $("#newp").val("");
+                $("#newsp").val("");
+              } else if (data.success == "0") {
+                $("#tan-yes").html("密码修改成功");
+              }
               $("#tan-yes").show();
               $("#tan_inner").hide();
               setTimeout(() => {
@@ -174,13 +183,13 @@ $(function() {
       };
     },
     loadIframe: function(src) {
-      if ($("#ifPage").attr("src") !== "./view" + src) {
+      // if ($("#ifPage").attr("src") !== "./view" + src) {
         var iframepage =
           '<iframe style="" id="ifPage" src="./view' + src + '" ></iframe>';
         setTimeout(() => {
           $("#page_wrap").html(iframepage);
         });
-      }
+      // }
     },
 
     initLeftPage: function(data) {
@@ -226,7 +235,7 @@ $(function() {
       $("#page_wrap").html(
         // `<iframe style="" id="ifPage" src="./view${data.result[0].children[0].nemuUrl}" ></iframe>`
         //测试
-        `<iframe style="" id="ifPage" src="./view/permission.html" ></iframe>`
+        `<iframe style="" id="ifPage" src="./view/basic.html" ></iframe>`
       );
     }
   };

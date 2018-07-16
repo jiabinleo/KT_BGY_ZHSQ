@@ -1,5 +1,4 @@
 $(() => {
-  let localhost = "http://192.168.1.119:8088";
   var my_token = JSON.parse(sessionStorage.getItem("my_token")),
     seach1 = "", //查询条件
     seach2 = "",

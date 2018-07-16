@@ -1,9 +1,8 @@
 $(() => {
-  let localhost = "http://192.168.1.119:8088";
   var my_token = JSON.parse(sessionStorage.getItem("my_token")),
     seach1 = "", //查询条件
     data_json,
-    data_name = "报警角度",
+    data_name = "偏移角度",
     c = "°";
   var wellCover = {
     init: () => {
@@ -82,13 +81,13 @@ $(() => {
         data_name = $(this).attr("data-id");
         switch ($(this).attr("data-id")) {
           case "alarmAng":
-            data_name = "报警角度";
+            data_name = "偏移角度";
             c = "°";
             break;
-          case "bgAngle":
-            data_name = "背景角度";
-            c = "°";
-            break;
+          // case "bgAngle":
+          //   data_name = "背景角度";
+          //   c = "°";
+          //   break;
           case "rainStatu":
             data_name = "雨水状态";
             c = "mm";
@@ -98,6 +97,8 @@ $(() => {
             c = "V";
             break;
         }
+        console.log(data_json)
+        console.log($(this).attr("data-id"))
         wellCover.echarts(data_json[$(this).attr("data-id")], data_name);
       });
     },
@@ -142,7 +143,6 @@ $(() => {
       // 指定图表的配置项和数据
       var option = {
         title: {
-          // text: "ECharts 入门示例"
         },
         tooltip: {
           trigger: "axis",
