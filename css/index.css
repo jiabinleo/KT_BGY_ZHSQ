@@ -166,6 +166,19 @@ body {
   border-right: solid 1px #eeeeee;
   color: #1ea0e3;
 }
+.tan-wrap .tan-yes {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background: rgba(0, 0, 0, 0.1);
+  transform: translate(-50%, -50%);
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  text-align: center;
+  line-height: 50px;
+}
 header {
   width: 100%;
   height: 80px;

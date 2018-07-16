@@ -142,7 +142,14 @@ $(function() {
               newPwd: newPwd,
               oldPwd: oldPwd
             },
-            success: function(data) {},
+            success: function(data) {
+              $("#tan-yes").show();
+              $("#tan_inner").hide();
+              setTimeout(() => {
+                $("#tan-yes").hide();
+                $("#tan_wrap").hide();
+              }, 2000);
+            },
             error: function(err) {}
           });
         } else {
@@ -219,7 +226,7 @@ $(function() {
       $("#page_wrap").html(
         // `<iframe style="" id="ifPage" src="./view${data.result[0].children[0].nemuUrl}" ></iframe>`
         //测试
-        `<iframe style="" id="ifPage" src="./view/permission.html" ></iframe>`        
+        `<iframe style="" id="ifPage" src="./view/permission.html" ></iframe>`
       );
     }
   };
