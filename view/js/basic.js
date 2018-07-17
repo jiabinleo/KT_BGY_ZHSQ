@@ -91,17 +91,24 @@ $(() => {
             xhr.setRequestHeader("login_token", my_token);
           },
           success: function(data) {
-            if (data.success == "0") {
               $("#tan_yes").html(data.msg);
               $("#basic_add").hide();
               $("#tan_yes").show();
               basic.fenyenum();
               basic.querybd(seach1, seach2, seach3, pageNum, pageSize);
-              setTimeout(() => {
-                $("#tan_yes").hide();
-                $("#tan_wrap").hide();
-              }, 2000);
-            }
+
+              //添加成功后清除所填写的记录
+              $("#nameAdd").val("");
+              $("#codeAdd").val("");
+              $("#idAdd").val("");
+              $("#manufacturerAdd").val("");
+              $("#makeTimeAdd").val("");
+              $("#useTimeAdd").val("");
+
+            setTimeout(() => {
+              $("#tan_yes").hide();
+              $("#tan_wrap").hide();
+            }, 2000);
           },
           error: function(err) {
             $("#tan_yes").html("添加失败");
@@ -473,23 +480,23 @@ $(() => {
     init: function() {}
   };
   var mapChanges = {
-    init:function(){
-      mapChanges.listens()
+    init: function() {
+      mapChanges.listens();
     },
-    listens:function(){
-        $("#alleqi").change(function(){
-          var val = $("#alleqi option:selected").val();
-          console.log(val)
-          if (val == "basicTable") {
-            $(".basicTable").show()
-            $(".basicMap").hide()
-          } else if(val == "basicMap") {
-            $(".basicTable").hide()
-            $(".basicMap").show()
-          }
-        })
+    listens: function() {
+      $("#alleqi").change(function() {
+        var val = $("#alleqi option:selected").val();
+        console.log(val);
+        if (val == "basicTable") {
+          $(".basicTable").show();
+          $(".basicMap").hide();
+        } else if (val == "basicMap") {
+          $(".basicTable").hide();
+          $(".basicMap").show();
+        }
+      });
     }
-  }
+  };
   basic.init();
   basicMap.init();
   mapChanges.init();

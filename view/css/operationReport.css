@@ -72,10 +72,6 @@ th {
   padding: 0;
   text-align: left;
 }
-@font-face {
-  font-family: "PINGFANGEXTRALIGHT";
-  src: url("../../font/PINGFANGHEAVY.TTF");
-}
 html,
 body {
   width: 100%;
