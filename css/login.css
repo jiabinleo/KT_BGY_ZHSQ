@@ -72,14 +72,6 @@ th {
   padding: 0;
   text-align: left;
 }
-@font-face {
-  font-family: "PINGFANGBOLD";
-  src: url("../font/PINGFANGBOLD.TTF");
-}
-@font-face {
-  font-family: "PINGFANGMEDIUM";
-  src: url("../font/PINGFANGMEDIUM.TTF");
-}
 html,
 body {
   width: 100%;
@@ -125,14 +117,12 @@ body {
   text-transform: Uppercase;
   color: #ffffff;
   font-size: 54px;
-  font-family: "PINGFANGBOLD";
   padding: 0 30px;
 }
 .wraper .inner .left .left-inner h2 p:last-of-type {
   margin-top: 30px;
   text-align: right;
   font-size: 32px;
-  font-family: "PINGFANGMEDIUM";
 }
 .wraper .inner .right {
   position: absolute;
@@ -149,7 +139,6 @@ body {
   top: 50%;
   left: 0;
   transform: translateY(-50%);
-  font-size: "PINGFANGMEDIUM";
 }
 .wraper .inner .right .right-wrap p {
   margin-top: 45px;

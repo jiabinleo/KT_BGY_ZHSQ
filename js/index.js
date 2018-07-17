@@ -3,7 +3,6 @@ $(function() {
   var account = JSON.parse(sessionStorage.getItem("account"));
   var userName = JSON.parse(sessionStorage.getItem("userName"));
   var imgUrl = JSON.parse(sessionStorage.getItem("imgUrl"));
-  console.log(my_token);
   var menuNull;
   var indexTop = 0;
   var jsonData;
@@ -166,18 +165,18 @@ $(function() {
               console.log(data);
               if (data.success == "1") {
                 $("#tan-yes").html(data.msg);
-                $("#oldPwd").val("");
-                $("#newp").val("");
-                $("#newsp").val("");
               } else if (data.success == "0") {
                 $("#tan-yes").html("密码修改成功");
               }
+              $("#oldPwd").val("");
+              $("#newp").val("");
+              $("#newsp").val("");
               $("#tan-yes").show();
               $("#tan_inner").hide();
               setTimeout(() => {
                 $("#tan-yes").hide();
                 $("#tan_wrap").hide();
-              }, 2000);
+              }, 5000);
             },
             error: function(err) {}
           });

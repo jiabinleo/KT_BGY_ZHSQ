@@ -72,26 +72,6 @@ th {
   padding: 0;
   text-align: left;
 }
-@font-face {
-  font-family: "PINGFANGBOLD";
-  src: url("../font/PINGFANGBOLD.TTF");
-}
-@font-face {
-  font-family: "PINGFANGEXTRALIGHT";
-  src: url("../font/PINGFANGEXTRALIGHT.TTF");
-}
-@font-face {
-  font-family: "PINGFANGHEAVY";
-  src: url("../font/PINGFANGHEAVY.TTF");
-}
-@font-face {
-  font-family: "PINGFANGLIGHT";
-  src: url("../font/PINGFANGLIGHT.TTF");
-}
-@font-face {
-  font-family: "PINGFANGMEDIUM";
-  src: url("../font/PINGFANGMEDIUM.TTF");
-}
 html,
 body {
   width: 100%;
@@ -113,7 +93,6 @@ body {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  font-family: "PINGFANGMEDIUM";
   font-weight: bold;
   overflow: hidden;
   width: 440px;
@@ -205,7 +184,6 @@ header .menus ul {
 }
 header .menus ul li {
   cursor: pointer;
-  font-family: "PINGFANGBOLD";
   height: 80px;
   float: left;
   line-height: 80px;
@@ -272,7 +250,6 @@ header .login {
   line-height: 80px;
   color: #ffffff;
   font-size: 14px;
-  font-family: "PINGFANGMEDIUM";
 }
 header .login img {
   width: 40px;

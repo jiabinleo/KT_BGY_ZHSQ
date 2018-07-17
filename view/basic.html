@@ -96,7 +96,7 @@
                 <input type="button" id="basic_del_no" value="取消">
             </div>
         </div>
-        <div id="tan_yes" class="tan-yes">123123123</div>
+        <div id="tan_yes" class="tan-yes"></div>
     </div>
     <div class="wrap">
         <header>
@@ -113,9 +113,9 @@
                 <span>设备名称</span>
                 <input class="sbname" type="text" placeholder="请输入设备名称">
                 <input id="seach" type="button" value="查询">
-                <select class="alleqi">
-                    <option value="">图表模式</option>
-                    <option value="">地图模式</option>
+                <select id="alleqi" class="alleqi">
+                    <option value="basicTable">图表模式</option>
+                    <option value="basicMap">地图模式</option>
                 </select>
             </div>
             <div class="top2">
@@ -124,7 +124,7 @@
                 <input id="delall" type="button" value="删除">
                 <input type="button" id="exportExcel" value="导出">
             </div>
-            <div class="tables">
+            <div class="basicTable tables">
                 <ul class="titles">
                     <li>
                         <span>
@@ -216,7 +216,7 @@
                     </li>
                 </ul>
             </div>
-            <div class="menu-bottom-wrap">
+            <div class="basicTable menu-bottom-wrap">
                 <div class="menu-bototm">
                     <input type="button" key="1" class="basic-first" id="basic_first" value="首页">
                     <input type="button" id="basic_prev" class="basic_prev" value="上一页">
@@ -224,6 +224,10 @@
                     <input type="button" id="basic_next" class="basic_next" value="下一页">
                     <input type="button" id="basic_end" value="末页">
                 </div>
+            </div>
+            <div class="basicMap">
+                <h2>暂无地图模式</h2>
+                <p>敬请期待</p>
             </div>
 
         </section>

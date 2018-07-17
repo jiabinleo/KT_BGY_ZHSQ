@@ -4,6 +4,7 @@ $(() => {
     seach2 = "",
     seach3 = "",
     delKey; //删除关键字
+  //图标模式
   var basic = {
     init: () => {
       basic.listent();
@@ -207,10 +208,15 @@ $(() => {
             xhr.setRequestHeader("login_token", my_token);
           },
           success: function(data) {
+            console.log(delKey);
+            console.log(data);
             basic.fenyenum();
             basic.querybd(seach1, seach2, seach3, pageNum, pageSize);
           },
-          error: function(err) {}
+          error: function(err) {
+            console.log(delKey);
+            console.log(data);
+          }
         });
       });
       $("#basic_del_no").on("click", function() {
@@ -241,7 +247,6 @@ $(() => {
       });
       $("#delall").on("click", function() {
         var size = $("#tableContent > li").length;
-
         $("#tan_wrap").show();
         $("#basic_del").show();
         var delId = "";
@@ -463,5 +468,29 @@ $(() => {
         });
     }
   };
+  //地图模式
+  var basicMap = {
+    init: function() {}
+  };
+  var mapChanges = {
+    init:function(){
+      mapChanges.listens()
+    },
+    listens:function(){
+        $("#alleqi").change(function(){
+          var val = $("#alleqi option:selected").val();
+          console.log(val)
+          if (val == "basicTable") {
+            $(".basicTable").show()
+            $(".basicMap").hide()
+          } else if(val == "basicMap") {
+            $(".basicTable").hide()
+            $(".basicMap").show()
+          }
+        })
+    }
+  }
   basic.init();
+  basicMap.init();
+  mapChanges.init();
 });

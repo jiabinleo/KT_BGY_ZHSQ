@@ -72,10 +72,6 @@ th {
   padding: 0;
   text-align: left;
 }
-@font-face {
-  font-family: "PINGFANGEXTRALIGHT";
-  src: url("../../font/PINGFANGHEAVY.TTF");
-}
 html,
 body {
   width: 100%;
@@ -99,7 +95,6 @@ header {
   border-bottom: 1px solid #eeeeee;
   font-weight: bold;
   overflow: hidden;
-  font-family: "PINGFANGEXTRALIGHT";
 }
 header::after {
   content: "running state";

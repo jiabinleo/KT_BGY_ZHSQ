@@ -72,10 +72,6 @@ th {
   padding: 0;
   text-align: left;
 }
-@font-face {
-  font-family: "PINGFANGEXTRALIGHT";
-  src: url("../../font/PINGFANGHEAVY.TTF");
-}
 html,
 body {
   width: 100%;
@@ -99,7 +95,6 @@ header {
   border-bottom: 1px solid #eeeeee;
   font-weight: bold;
   overflow: hidden;
-  font-family: "PINGFANGEXTRALIGHT";
 }
 header::after {
   content: "Water quality data report";
@@ -174,7 +169,6 @@ section .tables {
   width: 100%;
   overflow-x: auto;
   margin-top: 30px;
-  font-family: "PINGFANGEXTRALIGHT";
 }
 section .tables .titles li {
   background: #edeff1;
@@ -204,6 +198,7 @@ section .tables .tableContent li span {
 }
 section .tables .titles li span:first-of-type,
 section .tables .tableContent li span:first-of-type {
+  margin-left: 0;
   width: 80px;
 }
 section .tables .titles li span:first-of-type input,

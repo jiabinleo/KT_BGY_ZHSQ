@@ -72,10 +72,6 @@ th {
   padding: 0;
   text-align: left;
 }
-@font-face {
-  font-family: "PINGFANGEXTRALIGHT";
-  src: url("../../font/PINGFANGHEAVY.TTF");
-}
 html,
 body {
   width: 100%;
@@ -99,7 +95,6 @@ header {
   border-bottom: 1px solid #eeeeee;
   font-weight: bold;
   overflow: hidden;
-  font-family: "PINGFANGEXTRALIGHT";
 }
 header::after {
   content: "Basic equipment information";
@@ -175,7 +170,6 @@ section .tables {
   width: 100%;
   overflow-x: auto;
   margin-top: 30px;
-  font-family: "PINGFANGEXTRALIGHT";
 }
 section .tables .titles li {
   background: #edeff1;
@@ -293,6 +287,13 @@ section .menu-bottom-wrap .menu-bototm .pageIndex a {
 section .menu-bottom-wrap .menu-bototm .pageIndex a:first-of-type {
   background: -webkit-linear-gradient(90deg, #1ea0e3, #32b5ee, #35bcf0);
   color: #ffffff;
+}
+section .basicMap {
+  display: none;
+  text-align: center;
+  font-size: 50px;
+  padding: 100px;
+  color: #efefef;
 }
 .tan-wrap {
   position: absolute;
