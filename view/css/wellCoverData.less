@@ -89,32 +89,16 @@ section {
         border: none;
         background: -webkit-linear-gradient(90deg, #1ea0e3, #32b5ee, #35bcf0);
       }
-    }
-  }
-  .top2 {
-    margin-top: 30px;
-    overflow: hidden;
-    input {
-      border: 1px solid #d7d7d7;
-      background: none;
-      width: 65px;
-      height: 30px;
-      margin-left: 15px;
-      float: left;
-      &:first-of-type {
-        margin-left: 0;
-      }
-      &:last-of-type {
+      &.exportExcel {
+        border: 1px solid #d7d7d7;
+        background: none;
+        width: 65px;
+        height: 30px;
         float: right;
-      }
-      &:hover {
-        color: #19a8fb;
-        border: solid 1px #19a8fb;
       }
     }
   }
   .tables {
-    width: 100%;
     overflow-x: auto;
     margin-top: 30px;
     font-family: "PINGFANGEXTRALIGHT";
@@ -125,13 +109,11 @@ section {
     }
     .titles,
     .tableContent {
-      
       color: #333333;
       font-size: 12px;
       li {
         line-height: 43px;
         white-space: nowrap;
-        width: 1500px;
         overflow: hidden;
         &:nth-of-type(even) {
           background: #f5f9fc;
@@ -143,7 +125,6 @@ section {
           float: left;
           width: 125px;
           &:first-of-type {
-            // margin-left: 0;
             width: 80px;
             input {
               vertical-align: -2px;

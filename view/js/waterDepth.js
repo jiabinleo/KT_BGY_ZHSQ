@@ -75,7 +75,9 @@ $(() => {
       $("#seach").on("click", function() {
         seach3 = $(".sbname").val();
         var equipmentCode = seach3;
+        $("#depth_radio").prop("checked", "true")
         waterDepth.querydata(equipmentCode);
+        waterDepth.echarts("depth", "水位高度");
       });
       $("#top2_left").on("click", "input", function() {
         data_name = $(this).attr("data-id");

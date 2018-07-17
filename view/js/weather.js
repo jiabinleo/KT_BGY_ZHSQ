@@ -33,8 +33,7 @@ $(() => {
             );
           }
         },
-        error: function(err) {
-        }
+        error: function(err) {}
       });
 
       $(".projectName").change(function() {
@@ -68,21 +67,16 @@ $(() => {
               $(".sbname").show();
             }
           },
-          error: function(err) {
-          }
+          error: function(err) {}
         });
       });
       //查询查询
       $("#seach").on("click", function() {
         seach3 = $(".sbname").val();
-        $("#top2_left")
-          .find("input")
-          .eq(0)
-          .attr("checked", "true")
-          .siblings()
-          .removeAttr("checked")
         var equipmentCode = seach3;
+        $("#temp_radio").prop("checked", "true")
         weather.querydata(equipmentCode);
+        weather.echarts("temp", "温度");
       });
       $("#top2_left").on("click", "input", function() {
         data_name = $(this).attr("data-id");

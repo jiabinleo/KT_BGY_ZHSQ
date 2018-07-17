@@ -75,7 +75,9 @@ $(() => {
       $("#seach").on("click", function() {
         seach3 = $(".sbname").val();
         var equipmentCode = seach3;
+        $("#alarmAng_radio").prop("checked", "true")
         wellCover.querydata(equipmentCode);
+        wellCover.echarts("alarmAng", "偏移角度");
       });
       $("#top2_left").on("click", "input", function() {
         data_name = $(this).attr("data-id");
@@ -84,10 +86,6 @@ $(() => {
             data_name = "偏移角度";
             c = "°";
             break;
-          // case "bgAngle":
-          //   data_name = "背景角度";
-          //   c = "°";
-          //   break;
           case "rainStatu":
             data_name = "雨水状态";
             c = "mm";
@@ -114,6 +112,7 @@ $(() => {
           xhr.setRequestHeader("login_token", my_token);
         },
         success: data => {
+          console.log(data)
           data_json = data.result.element;
           wellCover.echarts(data.result.element.alarmAng, data_name);
           wellCover.mess(data.result.equipmentBase);

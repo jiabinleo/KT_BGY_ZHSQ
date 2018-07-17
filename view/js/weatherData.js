@@ -34,8 +34,7 @@ $(() => {
             );
           }
         },
-        error: function(err) {
-        }
+        error: function(err) {}
       });
 
       $(".projectName").change(function() {
@@ -69,8 +68,7 @@ $(() => {
               $(".sbname").show();
             }
           },
-          error: function(err) {
-          }
+          error: function(err) {}
         });
       });
 
@@ -103,6 +101,10 @@ $(() => {
 
         $(".tableContent").show();
         $(".menu-bottom-wrap").show();
+      });
+      //导出
+      $("#exportExcel").on("click", function() {
+        window.open(localhost + "/user/exportExcel");
       });
       // 分页
       $("#pageIndex").on("click", "a", function() {
@@ -213,8 +215,7 @@ $(() => {
             weatherData.activeColor(pageNum);
           }
         },
-        error: function(err) {
-        }
+        error: function(err) {}
       });
     },
     querydata: function(data) {
@@ -336,8 +337,7 @@ $(() => {
           background: "#ffffff",
           color: "#666666"
         });
-    },
-    
+    }
   };
   weatherData.init();
 });

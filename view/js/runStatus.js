@@ -67,9 +67,9 @@ $(() => {
         runStatus.querybd(seach1, seach2, seach3, pageNum, pageSize);
       });
       //导出
-      $("#exportExcel").on("click", function() {
-        window.open(localhost + "/equipmentBase/exportExcel");
-      });
+      // $("#exportExcel").on("click", function() {
+      //   window.open(localhost + "/equipmentBase/exportExcel");
+      // });
       //全选
       $("#title_checkbox").on("click", function() {
         if (this.checked) {
@@ -228,7 +228,7 @@ $(() => {
           data[i].status +
           "></a>" +
           "</span>" +
-          '<span><a class="hulue">忽略</a><a class="baoxiu">报修</a><a class="tingyong">停用</a></span>' +
+          // '<span><a class="hulue">忽略</a><a class="baoxiu">报修</a><a class="tingyong">停用</a></span>' +
           "</li>";
       }
       $("#tableContent").html(lidata);

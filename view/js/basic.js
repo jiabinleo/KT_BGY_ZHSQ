@@ -6,7 +6,7 @@ $(() => {
     delKey; //删除关键字
   var basic = {
     init: () => {
-        basic.listent();
+      basic.listent();
     },
     listent: () => {
       // 项目名称
@@ -21,8 +21,7 @@ $(() => {
             basic.selepro(data.result);
           }
         },
-        error: function(err) {
-        }
+        error: function(err) {}
       });
 
       //laydate
@@ -46,8 +45,7 @@ $(() => {
             basic.seleequi(data.result);
           }
         },
-        error: function(err) {
-        }
+        error: function(err) {}
       });
       basic.fenyenum();
       //表单筛选
@@ -92,16 +90,28 @@ $(() => {
             xhr.setRequestHeader("login_token", my_token);
           },
           success: function(data) {
-            console.log(data)
-            basic.fenyenum();
-            basic.querybd(seach1, seach2, seach3, pageNum, pageSize);
+            if (data.success == "0") {
+              $("#tan_yes").html(data.msg);
+              $("#basic_add").hide();
+              $("#tan_yes").show();
+              basic.fenyenum();
+              basic.querybd(seach1, seach2, seach3, pageNum, pageSize);
+              setTimeout(() => {
+                $("#tan_yes").hide();
+                $("#tan_wrap").hide();
+              }, 2000);
+            }
           },
           error: function(err) {
+            $("#tan_yes").html("添加失败");
+            $("#basic_add").hide();
+            $("#tan_yes").show();
+            setTimeout(() => {
+              $("#tan_yes").hide();
+              $("#tan_wrap").hide();
+            }, 2000);
           }
         });
-
-        $("#tan_wrap").hide();
-        $("#basic_add").hide();
       });
       $("#basic_add_no").on("click", function() {
         $("#tan_wrap").hide();
@@ -127,10 +137,18 @@ $(() => {
           .attr("selected", "selected")
           .siblings()
           .removeAttr("selected");
-        $("#updateName").val($(spans[3]).html()=="&nbsp;"?"":$(spans[3]).html());
-        $("#updatecode").val($(spans[5]).html()=="&nbsp;"?"":$(spans[5]).html());
-        $("#updateId").val($(spans[4]).html()=="&nbsp;"?"":$(spans[4]).html());
-        $("#updateAddress").val($(spans[6]).html()=="&nbsp;"?"":$(spans[6]).html());
+        $("#updateName").val(
+          $(spans[3]).html() == "&nbsp;" ? "" : $(spans[3]).html()
+        );
+        $("#updatecode").val(
+          $(spans[5]).html() == "&nbsp;" ? "" : $(spans[5]).html()
+        );
+        $("#updateId").val(
+          $(spans[4]).html() == "&nbsp;" ? "" : $(spans[4]).html()
+        );
+        $("#updateAddress").val(
+          $(spans[6]).html() == "&nbsp;" ? "" : $(spans[6]).html()
+        );
         $("#tan_wrap").show();
         $("#basic_mod").show();
       });
@@ -161,8 +179,7 @@ $(() => {
           success: function(data) {
             basic.querybd(seach1, seach2, seach3, pageNum, pageSize);
           },
-          error: function(err) {
-          }
+          error: function(err) {}
         });
       });
       $("#basic_mod_no").on("click", function() {
@@ -193,8 +210,7 @@ $(() => {
             basic.fenyenum();
             basic.querybd(seach1, seach2, seach3, pageNum, pageSize);
           },
-          error: function(err) {
-          }
+          error: function(err) {}
         });
       });
       $("#basic_del_no").on("click", function() {
@@ -229,22 +245,20 @@ $(() => {
         $("#tan_wrap").show();
         $("#basic_del").show();
         var delId = "";
-        for (
-          let i = 0;
-          i <
-          $("#tableContent")
-            .find("li")
-            .length;
-          i++
-        ) {
+        for (let i = 0; i < $("#tableContent").find("li").length; i++) {
           if (
             $("#tableContent")
               .find($("[name=xz]"))
               .eq(i)
               .prop("checked") === true
           ) {
-            delId+=($("#tableContent").find($("[name=xz]")).eq(i).parent().parent().attr("key")+","
-            );
+            delId +=
+              $("#tableContent")
+                .find($("[name=xz]"))
+                .eq(i)
+                .parent()
+                .parent()
+                .attr("key") + ",";
           }
         }
         delId = delId.substring(0, delId.length - 1);
@@ -314,14 +328,13 @@ $(() => {
             basic.activeColor(pageNum);
           }
         },
-        error: function(err) {
-        }
+        error: function(err) {}
       });
     },
     querybd: function(seach1, seach2, seach3, pageNum, pageSize) {
       $.ajax({
         dataType: "json",
-        url: localhost + "/equipmentBase/getPage", 
+        url: localhost + "/equipmentBase/getPage",
         type: "POST",
         async: false,
         data: {
@@ -340,8 +353,7 @@ $(() => {
             basic.querydata(data.result.rows);
           }
         },
-        error: function(err) {
-        }
+        error: function(err) {}
       });
     },
     querydata: function(data) {

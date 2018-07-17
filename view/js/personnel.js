@@ -466,6 +466,10 @@ $(() => {
           personnel.activeColor(pageNum);
         }
       });
+       //导出
+       $("#exportExcel").on("click", function() {
+        window.open(localhost + "/user/exportExcel");
+      });
     },
     // 获取分页数量
     fenyenum: function() {

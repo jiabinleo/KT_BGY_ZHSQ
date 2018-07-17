@@ -3,7 +3,7 @@ $(function() {
   var account = JSON.parse(sessionStorage.getItem("account"));
   var userName = JSON.parse(sessionStorage.getItem("userName"));
   var imgUrl = JSON.parse(sessionStorage.getItem("imgUrl"));
-  console.log(my_token)
+  console.log(my_token);
   var menuNull;
   var indexTop = 0;
   var jsonData;
@@ -39,16 +39,29 @@ $(function() {
           .siblings()
           .removeClass("clickActive");
       });
-      $("#logins").on("click", function() {
-        if ($("#login-tan").attr("key") === "off") {
-          $("#login-tan").attr("key", "on");
+      $("#logins").on("click", function(e) {
+        if (e && e.stopPropagation) {
+          //W3C取消冒泡事件
+          e.stopPropagation();
+        } else {
+          //IE取消冒泡事件
+          window.event.cancelBubble = true;
+        }
+        if ($("#login-tan").css("display") == "none") {
           $("#login-arr").css(indexPage.rotates(90));
           $("#login-tan").show();
-        } else if ($("#login-tan").attr("key") === "on") {
-          $("#login-tan").attr("key", "off");
-          $("#login-a rr").css(indexPage.rotates(0));
+        } else if ($("#login-tan").css("display") == "block") {
+          $("#login-arr").css(indexPage.rotates(0));
           $("#login-tan").hide();
         }
+      });
+      $(document).on("click", function() {
+        $("#login-arr").css(indexPage.rotates(0));
+        $("#login-tan").hide();
+      });
+      $(document).on("click", "iframe", function() {
+        $("#login-arr").css(indexPage.rotates(0));
+        $("#login-tan").hide();
       });
       $("#tuichu").on("click", function() {
         window.open("../login.html", "_self");
@@ -122,7 +135,14 @@ $(function() {
         indexPage.loadIframe($(this).attr("data-id"));
       });
       //修改密码
-      $("#updatePassword").on("click", function() {
+      $("#updatePassword").on("click", function(e) {
+        if (e && e.stopPropagation) {
+          //W3C取消冒泡事件
+          e.stopPropagation();
+        } else {
+          //IE取消冒泡事件
+          window.event.cancelBubble = true;
+        }
         $("#newpws").html("");
         $("#tan_wrap").show();
         $("#tan_inner").show();
@@ -165,7 +185,14 @@ $(function() {
           $("#newpws").html("两次密码不一致!!!");
         }
       });
-      $("#quxiao").on("click", function() {
+      $("#quxiao").on("click", function(e) {
+        if (e && e.stopPropagation) {
+          //W3C取消冒泡事件
+          e.stopPropagation();
+        } else {
+          //IE取消冒泡事件
+          window.event.cancelBubble = true;
+        }
         $("#tan_wrap").hide();
         $("#tan_inner").hide();
         $("#oldPwd").val("");
@@ -184,11 +211,11 @@ $(function() {
     },
     loadIframe: function(src) {
       // if ($("#ifPage").attr("src") !== "./view" + src) {
-        var iframepage =
-          '<iframe style="" id="ifPage" src="./view' + src + '" ></iframe>';
-        setTimeout(() => {
-          $("#page_wrap").html(iframepage);
-        });
+      var iframepage =
+        '<iframe style="" id="ifPage" src="./view' + src + '" ></iframe>';
+      setTimeout(() => {
+        $("#page_wrap").html(iframepage);
+      });
       // }
     },
 

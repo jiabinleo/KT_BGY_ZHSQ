@@ -1,10 +1,24 @@
-let localhost = "http://192.168.1.119:8088";
-// let localhost = "http://14.116.184.77:8095";
-
+// let localhost = "http://192.168.1.119:8088";
+let localhost = "http://14.116.184.77:8095";
 var pageNum = 1,
-    pageSum,
-    pageSize = 6;
+  pageSum,
+  pageSize = 6;
 var common = {
+  listen: function() {
+    $(document).on("click", function() {
+      $("#login-tan", window.parent.document).css({ display: "none" });
+      $("#login-arr", window.parent.document).css(common.rotates(0));
+    });
+  },
+  rotates: function(deg) {
+    return {
+      transform: "rotate(" + deg + "deg)",
+      "-ms-transform": "rotate(" + deg + "deg)",
+      "-moz-transform": "rotate(" + deg + "deg)" /* Firefox */,
+      "-webkit-transform": "rotate(" + deg + "deg)" /* Safari 和 Chrome */,
+      "-o-transform": "rotate(" + deg + "deg)" /* Opera */
+    };
+  },
   //时间转换
   formatDate: function(now) {
     var now = new Date(now);
@@ -39,3 +53,4 @@ var common = {
     return s + str;
   }
 };
+common.listen();

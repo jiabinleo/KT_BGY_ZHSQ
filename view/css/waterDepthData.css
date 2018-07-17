@@ -163,27 +163,12 @@ section .top1 input.seach {
   border: none;
   background: -webkit-linear-gradient(90deg, #1ea0e3, #32b5ee, #35bcf0);
 }
-section .top2 {
-  margin-top: 30px;
-  overflow: hidden;
-}
-section .top2 input {
+section .top1 input.exportExcel {
   border: 1px solid #d7d7d7;
   background: none;
   width: 65px;
   height: 30px;
-  margin-left: 15px;
-  float: left;
-}
-section .top2 input:first-of-type {
-  margin-left: 0;
-}
-section .top2 input:last-of-type {
   float: right;
-}
-section .top2 input:hover {
-  color: #19a8fb;
-  border: solid 1px #19a8fb;
 }
 section .tables {
   width: 100%;
@@ -203,7 +188,6 @@ section .tables .titles li,
 section .tables .tableContent li {
   line-height: 43px;
   white-space: nowrap;
-  width: 1500px;
   overflow: hidden;
 }
 section .tables .titles li:nth-of-type(even),
