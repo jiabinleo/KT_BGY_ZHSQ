@@ -305,11 +305,10 @@ section .menu-bottom-wrap .menu-bototm .pageIndex a:first-of-type {
   display: none;
   position: absolute;
   width: 500px;
-  height: 748px;
+  min-height: 521px;
+  max-height: 748px;
   left: 50%;
   top: 20%;
-  margin-left: -250px;
-  margin-top: -136px;
   z-index: 11112;
   background-color: #ffffff;
   border-radius: 5px;

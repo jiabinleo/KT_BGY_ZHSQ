@@ -7,7 +7,7 @@ $(function() {
   var indexTop = 0;
   var jsonData;
   if (my_token == null) {
-    window.open("/login.html", "_self");
+    window.open("login.html", "_self");
   }
   var indexPage = {
     inits: () => {
@@ -63,7 +63,7 @@ $(function() {
         $("#login-tan").hide();
       });
       $("#tuichu").on("click", function() {
-        window.open("../login.html", "_self");
+        window.open("login.html", "_self");
       });
       //左侧菜单
       $(document).on("click", ".top", function(e) {

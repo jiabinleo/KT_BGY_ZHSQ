@@ -68,7 +68,7 @@ $(function() {
                   "my_token",
                   JSON.stringify(data.result.token)
                 );
-                window.open("/index.html", "_self");
+                window.open("index.html", "_self");
                 console.log(data.result.user.imgUrl);
               } else {
                 $("#login_prompt").html("用户名或密码错误");
