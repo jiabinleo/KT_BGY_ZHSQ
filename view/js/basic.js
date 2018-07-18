@@ -61,6 +61,8 @@ $(() => {
       });
       //新增
       $("#newAdd").on("click", function() {
+        $("#makeTimeAdd").val(common.formatDate(new Date().getTime()))
+        $("#useTimeAdd").val(common.formatDate(new Date().getTime()))
         $("#tan_wrap").show();
         $("#basic_add").show();
       });
@@ -127,16 +129,8 @@ $(() => {
       });
       // 修改
       $(document).on("click", ".mod", function() {
-        delKey = $(
-          $(this)
-            .parent()
-            .parent()[0]
-        ).attr("key");
-        var spans = $(
-          $(this)
-            .parent()
-            .parent()[0]
-        ).find("span");
+        delKey = $($(this).parent().parent()[0]).attr("key");
+        var spans = $($(this).parent().parent()[0]).find("span");
         $("#updaproName option[value='" + $(spans[1]).attr("key") + "']")
           .attr("selected", "selected")
           .siblings()
@@ -148,14 +142,17 @@ $(() => {
         $("#updateName").val(
           $(spans[3]).html() == "&nbsp;" ? "" : $(spans[3]).html()
         );
-        $("#updatecode").val(
-          $(spans[5]).html() == "&nbsp;" ? "" : $(spans[5]).html()
-        );
         $("#updateId").val(
           $(spans[4]).html() == "&nbsp;" ? "" : $(spans[4]).html()
         );
+        $("#updatecode").val(
+          $(spans[5]).html() == "&nbsp;" ? "" : $(spans[5]).html()
+        );
         $("#updateAddress").val(
           $(spans[6]).html() == "&nbsp;" ? "" : $(spans[6]).html()
+        );
+        $("#updateManu").val(
+          $(spans[7]).html() == "&nbsp;" ? "" : $(spans[7]).html()
         );
         $("#tan_wrap").show();
         $("#basic_mod").show();
@@ -169,6 +166,7 @@ $(() => {
           updatemanu = $("#updateId").val(),
           updatecode = $("#updatecode").val(),
           updateAddress = $("#updateAddress").val();
+          updateManu = $("#updateManu").val();
         $.ajax({
           url: localhost + "/equipmentBase/update",
           type: "POST",
@@ -177,7 +175,7 @@ $(() => {
             projectCode: projectCode,
             type: updateType,
             name: updateName,
-            manufacturer: updatemanu,
+            manufacturer: updateManu,
             code: updatecode,
             address: updateAddress
           },
@@ -215,14 +213,10 @@ $(() => {
             xhr.setRequestHeader("login_token", my_token);
           },
           success: function(data) {
-            console.log(delKey);
-            console.log(data);
             basic.fenyenum();
             basic.querybd(seach1, seach2, seach3, pageNum, pageSize);
           },
           error: function(err) {
-            console.log(delKey);
-            console.log(data);
           }
         });
       });
@@ -359,7 +353,8 @@ $(() => {
         beforeSend: function(xhr) {
           xhr.setRequestHeader("login_token", my_token);
         },
-        success: function(data, header) {
+        success: function(data) {
+          console.log(data)
           if (data.success === "0") {
             pageSum = data.result.total;
             basic.querydata(data.result.rows);

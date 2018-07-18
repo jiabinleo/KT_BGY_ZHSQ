@@ -176,7 +176,7 @@ $(function() {
               setTimeout(() => {
                 $("#tan-yes").hide();
                 $("#tan_wrap").hide();
-              }, 5000);
+              }, 2000);
             },
             error: function(err) {}
           });
