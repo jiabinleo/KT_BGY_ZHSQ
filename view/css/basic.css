@@ -365,11 +365,10 @@ section .basicMap {
   display: none;
   position: absolute;
   width: 960px;
-  height: 522px;
   left: 50%;
   top: 50%;
   margin-left: -480px;
-  margin-top: -261px;
+  margin-top: -282px;
   z-index: 11112;
   background-color: #ffffff;
 }

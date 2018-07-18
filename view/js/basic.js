@@ -34,6 +34,7 @@ $(() => {
         elem: "#useTimeAdd",
         type: "datetime"
       });
+
       // 设备系统
       $.ajax({
         url: localhost + "/system/getSysDictionary?code=EQUIPMENT",
@@ -49,6 +50,7 @@ $(() => {
         error: function(err) {}
       });
       basic.fenyenum();
+
       //表单筛选
       basic.querybd(seach1, seach2, seach3, pageNum, pageSize);
 
@@ -59,10 +61,11 @@ $(() => {
         basic.fenyenum();
         basic.querybd(seach1, seach2, seach3, pageNum, pageSize);
       });
+
       //新增
       $("#newAdd").on("click", function() {
-        $("#makeTimeAdd").val(common.formatDate(new Date().getTime()))
-        $("#useTimeAdd").val(common.formatDate(new Date().getTime()))
+        $("#makeTimeAdd").val(common.formatDate(new Date().getTime()));
+        $("#useTimeAdd").val(common.formatDate(new Date().getTime()));
         $("#tan_wrap").show();
         $("#basic_add").show();
       });
@@ -72,6 +75,7 @@ $(() => {
         var nameAdd = $("#nameAdd").val();
         var codeAdd = $("#codeAdd").val();
         var idAdd = $("#idAdd").val();
+        var addressAdd = $("#addressAdd").val();
         var manufacturerAdd = $("#manufacturerAdd").val();
         var makeTimeAdd = $("#makeTimeAdd").val();
         var useTimeAdd = $("#useTimeAdd").val();
@@ -85,6 +89,7 @@ $(() => {
             name: nameAdd,
             code: codeAdd,
             county: idAdd,
+            address: addressAdd,
             manufacturer: manufacturerAdd,
             makeTime: makeTimeAdd,
             useTime: useTimeAdd
@@ -93,19 +98,19 @@ $(() => {
             xhr.setRequestHeader("login_token", my_token);
           },
           success: function(data) {
-              $("#tan_yes").html(data.msg);
-              $("#basic_add").hide();
-              $("#tan_yes").show();
-              basic.fenyenum();
-              basic.querybd(seach1, seach2, seach3, pageNum, pageSize);
-
-              //添加成功后清除所填写的记录
-              $("#nameAdd").val("");
-              $("#codeAdd").val("");
-              $("#idAdd").val("");
-              $("#manufacturerAdd").val("");
-              $("#makeTimeAdd").val("");
-              $("#useTimeAdd").val("");
+            $("#tan_yes").html(data.msg);
+            $("#basic_add").hide();
+            $("#tan_yes").show();
+            basic.fenyenum();
+            basic.querybd(seach1, seach2, seach3, pageNum, pageSize);
+            //添加成功后清除所填写的记录
+            $("#nameAdd").val("");
+            $("#codeAdd").val("");
+            $("#idAdd").val("");
+            $("#addressAdd").val("");
+            $("#manufacturerAdd").val("");
+            $("#makeTimeAdd").val("");
+            $("#useTimeAdd").val("");
 
             setTimeout(() => {
               $("#tan_yes").hide();
@@ -129,8 +134,16 @@ $(() => {
       });
       // 修改
       $(document).on("click", ".mod", function() {
-        delKey = $($(this).parent().parent()[0]).attr("key");
-        var spans = $($(this).parent().parent()[0]).find("span");
+        delKey = $(
+          $(this)
+            .parent()
+            .parent()[0]
+        ).attr("key");
+        var spans = $(
+          $(this)
+            .parent()
+            .parent()[0]
+        ).find("span");
         $("#updaproName option[value='" + $(spans[1]).attr("key") + "']")
           .attr("selected", "selected")
           .siblings()
@@ -166,7 +179,7 @@ $(() => {
           updatemanu = $("#updateId").val(),
           updatecode = $("#updatecode").val(),
           updateAddress = $("#updateAddress").val();
-          updateManu = $("#updateManu").val();
+        updateManu = $("#updateManu").val();
         $.ajax({
           url: localhost + "/equipmentBase/update",
           type: "POST",
@@ -216,8 +229,7 @@ $(() => {
             basic.fenyenum();
             basic.querybd(seach1, seach2, seach3, pageNum, pageSize);
           },
-          error: function(err) {
-          }
+          error: function(err) {}
         });
       });
       $("#basic_del_no").on("click", function() {
@@ -354,7 +366,6 @@ $(() => {
           xhr.setRequestHeader("login_token", my_token);
         },
         success: function(data) {
-          console.log(data)
           if (data.success === "0") {
             pageSum = data.result.total;
             basic.querydata(data.result.rows);
