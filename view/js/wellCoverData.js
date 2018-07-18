@@ -232,10 +232,7 @@ $(() => {
             : "&nbsp") +
           "</span>" +
           "<span>" +
-          (data[i].alarmAngle ? data[i].alarmAngle : "&nbsp") +
-          "</span>" +
-          "<span>" +
-          (data[i].bgAngle ? data[i].bgAngle : "&nbsp") +
+          (data[i].angle_current ? data[i].angle_current : "&nbsp") +
           "</span>" +
           "<span>" +
           (data[i].rainStatus ? data[i].rainStatus : "&nbsp") +

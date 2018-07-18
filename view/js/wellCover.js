@@ -77,12 +77,12 @@ $(() => {
         var equipmentCode = seach3;
         $("#alarmAng_radio").prop("checked", "true")
         wellCover.querydata(equipmentCode);
-        wellCover.echarts("alarmAng", "偏移角度");
+        wellCover.echarts("angle_current", "偏移角度");
       });
       $("#top2_left").on("click", "input", function() {
         data_name = $(this).attr("data-id");
         switch ($(this).attr("data-id")) {
-          case "alarmAng":
+          case "angle_current":
             data_name = "偏移角度";
             c = "°";
             break;
@@ -114,7 +114,7 @@ $(() => {
         success: data => {
           console.log(data)
           data_json = data.result.element;
-          wellCover.echarts(data.result.element.alarmAng, data_name);
+          wellCover.echarts(data.result.element.angle_current, data_name);
           wellCover.mess(data.result.equipmentBase);
         },
         error: data => {}
