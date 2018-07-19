@@ -22,8 +22,7 @@ $(() => {
             runStatus.selepro(data.result);
           }
         },
-        error: function(err) {
-        }
+        error: function(err) {}
       });
       // 设备系统
       $.ajax({
@@ -37,8 +36,7 @@ $(() => {
             runStatus.seleequi(data.result);
           }
         },
-        error: function(err) {
-        }
+        error: function(err) {}
       });
       //运行状态
       $.ajax({
@@ -52,8 +50,7 @@ $(() => {
             runStatus.status(data.result);
           }
         },
-        error: function(err) {
-        }
+        error: function(err) {}
       });
       runStatus.fenyenum();
       //表单筛选
@@ -152,8 +149,7 @@ $(() => {
             runStatus.activeColor(pageNum);
           }
         },
-        error: function(err) {
-        }
+        error: function(err) {}
       });
     },
     selepro: function(data) {
@@ -193,6 +189,7 @@ $(() => {
       );
     },
     querydata: function(data) {
+      console.log(data);
       let lidata = "";
       for (let i = 0; i < data.length; i++) {
         lidata +=
@@ -261,12 +258,11 @@ $(() => {
         success: function(data, header) {
           if (data.success === "0") {
             pageSum = data.result.total;
-            // basic.fenye(pageSum)
+            runStatus.fenye(pageSum);
             runStatus.querydata(data.result.rows);
           }
         },
-        error: function(err) {
-        }
+        error: function(err) {}
       });
     },
     fenye: function(pageSum) {
@@ -285,16 +281,15 @@ $(() => {
       $("#pageIndex").html(alis);
     },
     activeColor: function(pages) {
-      $(".a" + pages)
-        .css({
-          background:
-            "-webkit-linear-gradient(90deg, #1ea0e3, #32b5ee, #35bcf0)",
-          color: "white"
-        })
-        .siblings()
-        .css({
-          background: "#ffffff",
-          color: "#666666"
+        setTimeout(() => {
+          $(".a" + pages)
+          .css({
+            background:
+              "-webkit-linear-gradient(90deg, #1ea0e3, #32b5ee, #35bcf0)",
+            color: "white"
+          })
+          .siblings()
+          .css({ background: "#ffffff", color: "#666666" }); 
         });
     }
   };

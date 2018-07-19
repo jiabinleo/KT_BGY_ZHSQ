@@ -259,9 +259,9 @@ $(function() {
       });
       //右侧默认显示页面
       $("#page_wrap").html(
-        `<iframe style="" id="ifPage" src="./view${data.result[0].children[0].nemuUrl}" ></iframe>`
-        //测试
-        // `<iframe style="" id="ifPage" src="./view/basic.html" ></iframe>`
+        `<iframe style="" id="ifPage" src="./view${
+          data.result[0].children[0].children[0].nemuUrl
+        }" ></iframe>`
       );
     }
   };
