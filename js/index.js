@@ -162,7 +162,6 @@ $(function() {
               oldPwd: oldPwd
             },
             success: function(data) {
-              console.log(data);
               if (data.success == "1") {
                 $("#tan-yes").html(data.msg);
               } else if (data.success == "0") {
@@ -209,13 +208,11 @@ $(function() {
       };
     },
     loadIframe: function(src) {
-      // if ($("#ifPage").attr("src") !== "./view" + src) {
       var iframepage =
         '<iframe style="" id="ifPage" src="./view' + src + '" ></iframe>';
       setTimeout(() => {
         $("#page_wrap").html(iframepage);
       });
-      // }
     },
 
     initLeftPage: function(data) {
