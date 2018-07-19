@@ -275,10 +275,6 @@ section .menu-bottom-wrap .menu-bototm .pageIndex a {
   line-height: 40px;
   font-size: 14px;
 }
-section .menu-bottom-wrap .menu-bototm .pageIndex a:first-of-type {
-  background: -webkit-linear-gradient(90deg, #1ea0e3, #32b5ee, #35bcf0);
-  color: #ffffff;
-}
 .tan-wrap {
   position: absolute;
   width: 100%;

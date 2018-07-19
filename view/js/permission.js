@@ -29,13 +29,17 @@ $(() => {
             xhr.setRequestHeader("login_token", my_token);
           },
           success: function(data) {
+            $("#tan_yes").html(data.msg);
+            $("#basic_add").hide();
+            $("#tan_yes").show();
             permission.querybd();
+            setTimeout(() => {
+              $("#tan_yes").hide();
+              $("#tan_wrap").hide();
+            }, 2000);
           },
           error: function(err) {}
         });
-
-        $("#tan_wrap").hide();
-        $("#basic_add").hide();
       });
       $("#basic_add_no").on("click", function() {
         $("#tan_wrap").hide();
@@ -43,13 +47,24 @@ $(() => {
       });
       // 修改
       $(document).on("click", ".mod", function() {
-        delKey = $($(this).parent().parent()[0]).attr("key");
-        $("#roleName").val($(this).parent().parent().find("span").eq(1).html());
+        delKey = $(
+          $(this)
+            .parent()
+            .parent()[0]
+        ).attr("key");
+        $("#roleName").val(
+          $(this)
+            .parent()
+            .parent()
+            .find("span")
+            .eq(1)
+            .html()
+        );
         //获取所有菜单
         $.ajax({
           url: localhost + "/menu/getMenuList",
           type: "get",
-          async:false,
+          async: false,
           beforeSend: function(xhr) {
             xhr.setRequestHeader("login_token", my_token);
           },
@@ -62,9 +77,6 @@ $(() => {
         $("#basic_mod").show();
       });
       $("#basic_mod_yes").on("click", function() {
-        $("#tan_wrap").hide();
-        $("#basic_mod").hide();
-
         var roleName = $("#roleName").val();
         var xuanzhong = [];
         $("input[name=cb]").each(function() {
@@ -79,7 +91,6 @@ $(() => {
         });
 
         menus = menus.substring(0, menus.length - 1);
-        console.log(menus);
         $.ajax({
           url: localhost + "/role/update",
           type: "POST",
@@ -92,7 +103,14 @@ $(() => {
             xhr.setRequestHeader("login_token", my_token);
           },
           success: function(data) {
+            $("#tan_yes").html("修改成功");
+            $("#basic_mod").hide();
+            $("#tan_yes").show();
             permission.querybd();
+            setTimeout(() => {
+              $("#tan_yes").hide();
+              $("#tan_wrap").hide();
+            }, 2000);
           },
           error: function(err) {}
         });
@@ -125,9 +143,8 @@ $(() => {
         delId = delId.substring(0, delId.length - 1);
         delKey = delId;
       });
+      //删除
       $("#basic_del_yes").on("click", function() {
-        $("#tan_wrap").hide();
-        $("#basic_del").hide();
         $.ajax({
           url: localhost + "/role/deleteById",
           type: "POST",
@@ -136,7 +153,20 @@ $(() => {
             xhr.setRequestHeader("login_token", my_token);
           },
           success: function(data) {
+            console.log(data);
+            if (delKey == "") {
+              $("#tan_yes").html("操作失败!");
+            } else {
+              $("#tan_yes").html("操作成功!");
+            }
+
+            $("#basic_del").hide();
+            $("#tan_yes").show();
             permission.querybd();
+            setTimeout(() => {
+              $("#tan_yes").hide();
+              $("#tan_wrap").hide();
+            }, 2000);
           },
           error: function(err) {}
         });
@@ -188,8 +218,6 @@ $(() => {
 
     getMenu: function(data, delKey) {
       //项目权限
-      console.log(data);
-      console.log(delKey);
       $.ajax({
         dataType: "json",
         url: localhost + "/menu/getMenuByRoleId",
@@ -202,9 +230,6 @@ $(() => {
           roleId: delKey
         },
         success: function(data) {
-          console.log("-----------");
-          console.log(data);
-          console.log("-----------");
           if (data.success === "0") {
             menuListOk = [];
             data = data.result;
@@ -299,7 +324,14 @@ $(() => {
       permission.noCheckAll();
       $(document).on("click", "[name=cb]", function() {
         if (this.checked) {
-          $(this).parent().parent().parent().parent().find("input").eq(0).prop("checked", true)
+          $(this)
+            .parent()
+            .parent()
+            .parent()
+            .parent()
+            .find("input")
+            .eq(0)
+            .prop("checked", true);
         }
         permission.noCheckAll();
       });
@@ -337,10 +369,18 @@ $(() => {
       });
       //折叠
       $(".title1").on("click", function() {
-        $(this).parent().parent().find(".ul1").slideToggle();
+        $(this)
+          .parent()
+          .parent()
+          .find(".ul1")
+          .slideToggle();
       });
       $(".title2").on("click", function() {
-        $(this).parent().parent().find(".ul2").slideToggle();
+        $(this)
+          .parent()
+          .parent()
+          .find(".ul2")
+          .slideToggle();
       });
     },
     noCheckAll: function() {

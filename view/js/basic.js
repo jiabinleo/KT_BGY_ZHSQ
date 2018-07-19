@@ -171,8 +171,6 @@ $(() => {
         $("#basic_mod").show();
       });
       $("#basic_mod_yes").on("click", function() {
-        $("#tan_wrap").hide();
-        $("#basic_mod").hide();
         var projectCode = $("#updaproName option:selected").val(),
           updateType = $("#updaequi option:selected").val(),
           updateName = $("#updateName").val(),
@@ -196,7 +194,14 @@ $(() => {
             xhr.setRequestHeader("login_token", my_token);
           },
           success: function(data) {
+            $("#tan_yes").html(data.msg);
+            $("#basic_mod").hide();
+            $("#tan_yes").show();
             basic.querybd(seach1, seach2, seach3, pageNum, pageSize);
+            setTimeout(() => {
+              $("#tan_yes").hide();
+              $("#tan_wrap").hide();
+            }, 2000);
           },
           error: function(err) {}
         });
@@ -216,8 +221,6 @@ $(() => {
         ).attr("key");
       });
       $("#basic_del_yes").on("click", function() {
-        $("#tan_wrap").hide();
-        $("#basic_del").hide();
         $.ajax({
           url: localhost + "/equipmentBase/deleteById",
           type: "POST",
@@ -226,8 +229,19 @@ $(() => {
             xhr.setRequestHeader("login_token", my_token);
           },
           success: function(data) {
+            if (delKey == "") {
+              $("#tan_yes").html("操作失败");
+            } else {
+              $("#tan_yes").html(data.msg);
+            }
+            $("#basic_del").hide();
+            $("#tan_yes").show();
             basic.fenyenum();
             basic.querybd(seach1, seach2, seach3, pageNum, pageSize);
+            setTimeout(() => {
+              $("#tan_yes").hide();
+              $("#tan_wrap").hide();
+            }, 2000);
           },
           error: function(err) {}
         });

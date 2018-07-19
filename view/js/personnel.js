@@ -20,7 +20,6 @@ $(() => {
         },
         success: function(data) {
           if (data.success === "0") {
-            console.log(data);
             personnel.selepro(data.result);
             personnel.projectNameList(data.result);
           }
@@ -144,6 +143,9 @@ $(() => {
             xhr.setRequestHeader("login_token", my_token);
           },
           success: function(data) {
+            $("#tan_yes").html(data.msg);
+            $("#basic_add").hide();
+            $("#tan_yes").show();
             personnel.fenyenum();
             personnel.querybd(
               seach1,
@@ -154,12 +156,21 @@ $(() => {
               pageSize
             );
             personnel.activeColor(pageNum);
+            //添加成功后清除所填写的记录
+            $("#per_user").val("");
+            $("#per_pass").val("");
+            $("#per_name").val("");
+            $("#per_tel").val("");
+            $("#manufacturerAdd").val("");
+            $("#makeTimeAdd").val("");
+            $("#useTimeAdd").val("");
+            setTimeout(() => {
+              $("#tan_yes").hide();
+              $("#tan_wrap").hide();
+            }, 2000);
           },
           error: function(err) {}
         });
-
-        $("#tan_wrap").hide();
-        $("#basic_add").hide();
       });
       $("#basic_add_no").on("click", function() {
         $("#tan_wrap").hide();
@@ -177,7 +188,6 @@ $(() => {
             .parent()
             .parent()[0]
         ).attr("img");
-        console.log(userImg);
         var spans = $(
           $(this)
             .parent()
@@ -356,7 +366,6 @@ $(() => {
         ).attr("key");
       });
       $("#basic_del_yes").on("click", function() {
-        $("#tan_wrap").hide();
         $("#basic_del").hide();
         $.ajax({
           url: localhost + "/user/deleteByIds",
@@ -366,6 +375,14 @@ $(() => {
             xhr.setRequestHeader("login_token", my_token);
           },
           success: function(data) {
+            if (delKey == "") {
+              $("#tan_yes").html("操作失败！");
+            } else {
+              $("#tan_yes").html(data.msg);
+            }
+
+            $("#basic_del").hide();
+            $("#tan_yes").show();
             personnel.fenyenum();
             personnel.querybd(
               seach1,
@@ -376,6 +393,10 @@ $(() => {
               pageSize
             );
             personnel.activeColor(pageNum);
+            setTimeout(() => {
+              $("#tan_yes").hide();
+              $("#tan_wrap").hide();
+            }, 2000);
           },
           error: function(err) {}
         });
@@ -466,8 +487,8 @@ $(() => {
           personnel.activeColor(pageNum);
         }
       });
-       //导出
-       $("#exportExcel").on("click", function() {
+      //导出
+      $("#exportExcel").on("click", function() {
         window.open(localhost + "/user/exportExcel");
       });
     },
@@ -526,10 +547,8 @@ $(() => {
       });
     },
     querydata: function(data) {
-      
       let lidata = "";
       for (let i = 0; i < data.length; i++) {
-        console.log(data[i].projectCodeList);
         lidata +=
           "<li key=" +
           data[i].id +
