@@ -1,14 +1,14 @@
-$(() => {
+$(function() {
   var my_token = JSON.parse(sessionStorage.getItem("my_token")),
     seach1 = "", //查询条件
     data_json,
     data_name = "PH值",
     c = "°C";
   var water = {
-    init: () => {
+    init: function() {
       water.listent();
     },
-    listent: () => {
+    listent: function() {
       // 项目名称
       $.ajax({
         url: localhost + "/system/getSysDictionary?code=PROJECT",
@@ -102,25 +102,25 @@ $(() => {
       });
     },
     //数据查询
-    querydata: equipmentCode => {
+    querydata:  function(equipmentCode) {
       $.ajax({
         type: "POST",
         url: localhost + "/equipmentData/getHistory",
         data: {
           equipmentCode: equipmentCode
         },
-        beforeSend: xhr => {
+        beforeSend:  function(xhr) {
           xhr.setRequestHeader("login_token", my_token);
         },
-        success: data => {
+        success: function(data) {
           data_json = data.result.element;
           water.echarts(data.result.element.ph, data_name);
           water.mess(data.result.equipmentBase);
         },
-        error: data => {}
+        error: function(data) {}
       });
     },
-    mess: data => {
+    mess: function(data) {
       var list = `<ul>
       <li><span>项目名称：</span><span>${data.projectName}</span></li>
       <li><span>设备系统：</span><span>${data.typeName}</span></li>
@@ -130,7 +130,7 @@ $(() => {
 
       $("#message").html(list);
     },
-    echarts: (data, data_name) => {
+    echarts:  function(data, data_name) {
       var humidityxAxis = [];
       var ph = [];
       for (let i = 0; i < data.length; i++) {

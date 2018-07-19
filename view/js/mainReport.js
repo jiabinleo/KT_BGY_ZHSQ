@@ -1,18 +1,9 @@
-$(() => {
+$(function() {
   var mainReport = {
-    init: () => {
+    init: function() {
       mainReport.listent();
     },
-    listent: () => {
-      // $.ajax({
-      //   dataType: "json",
-      //   url: "/view/js/maintenanceTask.json",
-      //   success: function(data) {
-      //     mainReport.fenye(data.rows);
-      //   },
-      //   error: function() {
-      //   }
-      // });
+    listent: function() {
       //laydate
       laydate.render({
         elem: '#maintenanceTask1' //指定元素
@@ -202,7 +193,7 @@ $(() => {
         $(".oranges").css({ color: "#F8A543" });
       });
     },
-    fenye: data => {
+    fenye: function(data) {
       var pages = 1;
       var oness = 6; //每页最多显示的数量
       var pagenum = Math.ceil(data.length / oness);

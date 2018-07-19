@@ -10,12 +10,12 @@ $(function() {
     window.open("login.html", "_self");
   }
   var indexPage = {
-    inits: () => {
+    inits: function() {
       var MenuView = "";
       $("#userName").html(userName);
       indexPage.listen();
     },
-    listen: () => {
+    listen: function() {
       $("#imgUrl").attr("src", localhost + "/file/getImg?" + imgUrl);
       $.ajax({
         url: localhost + "/menu/getMenuView",
@@ -172,7 +172,7 @@ $(function() {
               $("#newsp").val("");
               $("#tan-yes").show();
               $("#tan_inner").hide();
-              setTimeout(() => {
+              setTimeout(function() {
                 $("#tan-yes").hide();
                 $("#tan_wrap").hide();
               }, 2000);
@@ -210,7 +210,7 @@ $(function() {
     loadIframe: function(src) {
       var iframepage =
         '<iframe style="" id="ifPage" src="./view' + src + '" ></iframe>';
-      setTimeout(() => {
+      setTimeout(function() {
         $("#page_wrap").html(iframepage);
       });
     },

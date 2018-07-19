@@ -1,4 +1,4 @@
-$(() => {
+$(function() {
   let localhost = "http://192.168.1.119:8088";
   var my_token = JSON.parse(sessionStorage.getItem("my_token")),
     seach1 = "", //查询条件
@@ -8,10 +8,10 @@ $(() => {
     startTime = "",
     endTime = "";
   var log = {
-    init: () => {
+    init: function() {
       log.listent();
     },
-    listent: () => {
+    listent: function() {
       // 项目名称
       $.ajax({
         url: localhost + "/system/getSysDictionary?code=PROJECT",

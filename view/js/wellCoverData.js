@@ -1,4 +1,4 @@
-$(() => {
+$(function() {
   var my_token = JSON.parse(sessionStorage.getItem("my_token")),
     seach1 = "", //查询条件
     seach2 = "",
@@ -7,10 +7,10 @@ $(() => {
     startTime = "",
     endTime = "";
   var wellCoverData = {
-    init: () => {
+    init: function() {
       wellCoverData.listent();
     },
-    listent: () => {
+    listent: function() {
       // 项目名称
       $.ajax({
         url: localhost + "/system/getSysDictionary?code=PROJECT",

@@ -1,11 +1,9 @@
-$(() => {
+$(function() {
   var failuredata = {
-    init: () => {
-      // setTimeout(() => {
-      failuredata.listent();        
-      // });
+    init: function() {
+      failuredata.listent();      
     },
-    listent: () => {
+    listent: function() {
       $.ajax({
         dataType: "json",
         // url: "/view/js/failuredata.json",
@@ -205,7 +203,7 @@ $(() => {
         $(".oranges").css({ color: "#F8A543" });
       });
     },
-    fenye: data => {
+    fenye: function(data) {
       var pages = 1;
       var oness = 6; //每页最多显示的数量
       var pagenum = Math.ceil(data.length / oness);

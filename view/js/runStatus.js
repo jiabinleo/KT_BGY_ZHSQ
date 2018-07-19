@@ -1,14 +1,14 @@
-$(() => {
+$(function() {
   var my_token = JSON.parse(sessionStorage.getItem("my_token")),
     seach1 = "", //查询条件
     seach2 = "",
     seach3 = "",
     delKey; //删除关键字
   var runStatus = {
-    init: () => {
+    init: function() {
       runStatus.listent();
     },
-    listent: () => {
+    listent: function() {
       //项目名称
       $.ajax({
         dataType: "json",
@@ -281,7 +281,7 @@ $(() => {
       $("#pageIndex").html(alis);
     },
     activeColor: function(pages) {
-        setTimeout(() => {
+        setTimeout(function() {
           $(".a" + pages)
           .css({
             background:

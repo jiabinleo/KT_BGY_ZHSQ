@@ -1,4 +1,4 @@
-$(() => {
+$(function() {
   var my_token = JSON.parse(sessionStorage.getItem("my_token")),
     seach1 = "", //查询条件
     seach2 = "",
@@ -7,10 +7,10 @@ $(() => {
     delKey, //删除关键字
     userImg = "";
   var personnel = {
-    init: () => {
+    init: function() {
       personnel.listent();
     },
-    listent: () => {
+    listent: function() {
       // 项目名称
       $.ajax({
         url: localhost + "/system/getSysDictionary?code=PROJECT",
@@ -164,7 +164,7 @@ $(() => {
             $("#manufacturerAdd").val("");
             $("#makeTimeAdd").val("");
             $("#useTimeAdd").val("");
-            setTimeout(() => {
+            setTimeout(function() {
               $("#tan_yes").hide();
               $("#tan_wrap").hide();
             }, 2000);
@@ -393,7 +393,7 @@ $(() => {
               pageSize
             );
             personnel.activeColor(pageNum);
-            setTimeout(() => {
+            setTimeout(function() {
               $("#tan_yes").hide();
               $("#tan_wrap").hide();
             }, 2000);

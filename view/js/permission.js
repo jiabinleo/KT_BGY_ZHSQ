@@ -1,12 +1,12 @@
-$(() => {
+$(function() {
   var my_token = JSON.parse(sessionStorage.getItem("my_token")),
     delKey, //删除关键字
     menuListOk = []; //原有的权限
   var permission = {
-    init: () => {
+    init: function() {
       permission.listent();
     },
-    listent: () => {
+    listent: function() {
       //表单筛选
       permission.querybd();
       //新增
@@ -33,7 +33,7 @@ $(() => {
             $("#basic_add").hide();
             $("#tan_yes").show();
             permission.querybd();
-            setTimeout(() => {
+            setTimeout(function() {
               $("#tan_yes").hide();
               $("#tan_wrap").hide();
             }, 2000);
@@ -107,7 +107,7 @@ $(() => {
             $("#basic_mod").hide();
             $("#tan_yes").show();
             permission.querybd();
-            setTimeout(() => {
+            setTimeout(function() {
               $("#tan_yes").hide();
               $("#tan_wrap").hide();
             }, 2000);
@@ -163,7 +163,7 @@ $(() => {
             $("#basic_del").hide();
             $("#tan_yes").show();
             permission.querybd();
-            setTimeout(() => {
+            setTimeout(function() {
               $("#tan_yes").hide();
               $("#tan_wrap").hide();
             }, 2000);

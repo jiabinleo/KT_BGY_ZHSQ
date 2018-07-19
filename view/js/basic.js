@@ -1,4 +1,4 @@
-$(() => {
+$(function() {
   var my_token = JSON.parse(sessionStorage.getItem("my_token")),
     seach1 = "", //查询条件
     seach2 = "",
@@ -6,10 +6,10 @@ $(() => {
     delKey; //删除关键字
   //图标模式
   var basic = {
-    init: () => {
+    init: function() {
       basic.listent();
     },
-    listent: () => {
+    listent: function() {
       // 项目名称
       $.ajax({
         url: localhost + "/system/getSysDictionary?code=PROJECT",
@@ -112,7 +112,7 @@ $(() => {
             $("#makeTimeAdd").val("");
             $("#useTimeAdd").val("");
 
-            setTimeout(() => {
+            setTimeout(function() {
               $("#tan_yes").hide();
               $("#tan_wrap").hide();
             }, 2000);
@@ -121,7 +121,7 @@ $(() => {
             $("#tan_yes").html("添加失败");
             $("#basic_add").hide();
             $("#tan_yes").show();
-            setTimeout(() => {
+            setTimeout(function() {
               $("#tan_yes").hide();
               $("#tan_wrap").hide();
             }, 2000);
@@ -198,7 +198,7 @@ $(() => {
             $("#basic_mod").hide();
             $("#tan_yes").show();
             basic.querybd(seach1, seach2, seach3, pageNum, pageSize);
-            setTimeout(() => {
+            setTimeout(function() {
               $("#tan_yes").hide();
               $("#tan_wrap").hide();
             }, 2000);
@@ -238,7 +238,7 @@ $(() => {
             $("#tan_yes").show();
             basic.fenyenum();
             basic.querybd(seach1, seach2, seach3, pageNum, pageSize);
-            setTimeout(() => {
+            setTimeout(function() {
               $("#tan_yes").hide();
               $("#tan_wrap").hide();
             }, 2000);

@@ -1,9 +1,9 @@
-$(() => {
+$(function() {
   var frequency = {
-    init: () => {
+    init: function() {
       frequency.listent();
     },
-    listent: () => {
+    listent: function() {
       
       //laydate
       laydate.render({
@@ -120,7 +120,7 @@ $(() => {
     },
 
     //分页
-    fenye: data => {
+    fenye: function(data) {
       var pages = 1;
       var oness = 6; //每页最多显示的数量
       var pagenum = Math.ceil(data.length / oness);

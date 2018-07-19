@@ -1,9 +1,9 @@
-$(() => {
+$(function() {
   var standard = {
-    init: () => {
+    init: function() {
       standard.listent();
     },
-    listent: () => {
+    listent: function() {
       $.ajax({
         dataType: "json",
         // url: "/view/js/standard.json",
@@ -138,7 +138,7 @@ $(() => {
       }
       $("#tableContent").html(lidata);
     },
-    fenye: data => {
+    fenye: function(data) {
       var pages = 1;
       var oness = 6; //每页最多显示的数量
       var pagenum = Math.ceil(data.length / oness);
