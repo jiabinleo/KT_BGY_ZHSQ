@@ -154,15 +154,18 @@ body {
         .sub {
           width: 520px;
           height: 80px;
-
-          background: -webkit-linear-gradient(-180deg,#1ea0e3,#32b5ee,#35bcf0);
-	  background: -ms-linear-gradient(-180deg,#1ea0e3,#32b5ee,#35bcf0);
-	  filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#FF0000',endColorStr='#F9F900',gradientType='0'); 
-
-	  background: -moz-linear-gradient(top, #FF0000, #F9F900); 
-	  background: -o-linear-gradient(top,#FF0000, #F9F900); 
-	  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FF0000), to(#F9F900));
-	  
+          background: -webkit-linear-gradient(
+            -180deg,
+            #1ea0e3,
+            #32b5ee,
+            #35bcf0
+          );
+	  background: -ms-linear-gradient(
+            -180deg,
+            #1ea0e3,
+            #32b5ee,
+            #35bcf0
+          );
           border: none;
           outline: none;
           font-size: 24px;

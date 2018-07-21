@@ -258,7 +258,7 @@ $(function() {
       $("#page_wrap").html(
         '<iframe style="" id="ifPage" src="./view'+
           data.result[0].children[0].children[0].nemuUrl
-        +'"></iframe>'
+        +'" ></iframe>'
       );
     }
   };
