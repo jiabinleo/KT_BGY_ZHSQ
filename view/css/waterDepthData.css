@@ -111,9 +111,10 @@ section .top1 {
   font-size: 12px;
   line-height: 30px;
   margin-top: 30px;
+  width: 100%;
 }
 section .top1 span {
-  margin-left: 30px;
+  margin-left: 1%;
   float: left;
 }
 section .top1 span:first-of-type {
@@ -128,7 +129,7 @@ section .top1 span.sbnamen {
 section .top1 select {
   vertical-align: middle;
   height: 30px;
-  margin-left: 5px;
+  margin-left: 1%;
   float: left;
 }
 section .top1 select.alleqi {
@@ -143,7 +144,7 @@ section .top1 select.sbname {
 section .top1 input {
   height: 30px;
   width: 130px;
-  margin-left: 30px;
+  margin-left: 1%;
   outline: none;
   float: left;
 }
@@ -180,6 +181,7 @@ section .tables .tableContent {
 }
 section .tables .titles li,
 section .tables .tableContent li {
+  width: 100%;
   line-height: 43px;
   white-space: nowrap;
   overflow: hidden;
@@ -194,28 +196,16 @@ section .tables .tableContent li span {
   display: inline-block;
   text-align: left;
   float: left;
-  width: 125px;
-}
-section .tables .titles li span:first-of-type,
-section .tables .tableContent li span:first-of-type {
-  width: 80px;
+  width: 10%;
 }
 section .tables .titles li span:first-of-type input,
 section .tables .tableContent li span:first-of-type input {
   vertical-align: -2px;
-  margin: 10px;
+  margin-right: 10px;
 }
 section .tables .titles li span:nth-of-type(2),
 section .tables .tableContent li span:nth-of-type(2) {
-  width: 200px;
-}
-section .tables .titles li span:nth-of-type(3),
-section .tables .tableContent li span:nth-of-type(3) {
-  width: 120px;
-}
-section .tables .titles li span:nth-of-type(4),
-section .tables .tableContent li span:nth-of-type(4) {
-  width: 160px;
+  width: 20%;
 }
 section .tables .titles li span:last-of-type a,
 section .tables .tableContent li span:last-of-type a {

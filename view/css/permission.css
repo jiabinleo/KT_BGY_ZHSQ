@@ -306,9 +306,9 @@ section .menu-bottom-wrap .menu-bototm .pageIndex a:first-of-type {
   position: absolute;
   width: 500px;
   min-height: 521px;
-  max-height: 748px;
+  max-height: 610px;
   left: 50%;
-  top: 20%;
+  top: 23%;
   margin-left: -250px;
   margin-top: -136px;
   z-index: 11112;

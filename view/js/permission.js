@@ -262,7 +262,7 @@ $(function() {
               '<input class="leve1" ' + check + ' name="cb" key=' +  data[i].id + ' type="checkbox"/>'+
               '<span class="title1" id=' + data[i].id + ">" + data[i].menuName + '</span>'+
             '</div>'+
-            '<ul style="padding-left:30px;display: none" class="ul1 menuleve1' + i + '}">'+
+            '<ul style="padding-left:30px;display: none" class="ul1 menuleve1' + i + '">'+
             '</ul>'+
           '</li>';
         $(".menuleve2-ul").html("123");
@@ -320,7 +320,7 @@ $(function() {
               data[i].children[j].children[k].id +
               ">" +
               data[i].children[j].children[k].menuName +
-              "}</span></div></li>";
+              "</span></div></li>";
           }
           $(".menuleve2" + leve3).html(menuleve3);
         }
@@ -338,14 +338,14 @@ $(function() {
       permission.noCheckAll();
       $(document).on("click", "[name=cb]", function() {
         if (this.checked) {
-          $(this)
-            .parent()
-            .parent()
-            .parent()
-            .parent()
-            .find("input")
-            .eq(0)
-            .prop("checked", true);
+          // $(this)
+          //   .parent()
+          //   .parent()
+          //   .parent()
+          //   .parent()
+          //   .find("input")
+          //   .eq(0)
+          //   .prop("checked", true);
         }
         permission.noCheckAll();
       });
