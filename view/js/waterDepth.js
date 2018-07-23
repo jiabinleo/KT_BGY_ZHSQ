@@ -174,6 +174,11 @@ $(function() {
             snap: true
           }
         },
+        grid: {
+          left: '8%',
+          bottom: '3%',
+          containLabel: true
+        },
         series: [
           {
             name: data_name,

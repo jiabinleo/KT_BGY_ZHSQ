@@ -146,7 +146,7 @@ $(function() {
       //删除
       $("#basic_del_yes").on("click", function() {
         $.ajax({
-          url: localhost + "/role/devareById",
+          url: localhost + "/role/deleteById",
           type: "POST",
           data: { id: delKey },
           beforeSend: function(xhr) {
