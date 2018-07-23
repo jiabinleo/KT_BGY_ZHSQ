@@ -32,8 +32,7 @@ $(function() {
             );
           }
         },
-        error: function(err) {
-        }
+        error: function(err) {}
       });
 
       $(".projectName").change(function() {
@@ -67,15 +66,14 @@ $(function() {
               $(".sbname").show();
             }
           },
-          error: function(err) {
-          }
+          error: function(err) {}
         });
       });
       //查询查询
       $("#seach").on("click", function() {
         seach3 = $(".sbname").val();
         var equipmentCode = seach3;
-        $("#depth_radio").prop("checked", "true")
+        $("#depth_radio").prop("checked", "true");
         waterDepth.querydata(equipmentCode);
         waterDepth.echarts("depth", "水位高度");
       });
@@ -92,38 +90,47 @@ $(function() {
       });
     },
     //数据查询
-    querydata:  function(equipmentCode) {
+    querydata: function(equipmentCode) {
       $.ajax({
         type: "POST",
         url: localhost + "/equipmentData/getHistory",
         data: {
           equipmentCode: equipmentCode
         },
-        beforeSend:  function(xhr) {
+        beforeSend: function(xhr) {
           xhr.setRequestHeader("login_token", my_token);
         },
-        success:  function(data) {
+        success: function(data) {
           data_json = data.result.element;
           waterDepth.echarts(data.result.element.depth, data_name);
           waterDepth.mess(data.result.equipmentBase);
         },
-        error:  function(data) {}
+        error: function(data) {}
       });
     },
-    mess:  function(data) {
-      var list = `<ul>
-      <li><span>项目名称：</span><span>${data.projectName}</span></li>
-      <li><span>设备系统：</span><span>${data.typeName}</span></li>
-      <li><span>设备名称：</span><span>${data.name}</span></li>
-      <li><span>设备编码：</span><span>${data.code}</span></li>
-  </ul>`;
+    mess: function(data) {
+      var list =
+        "<ul>" +
+        "<li><span>项目名称：</span><span>" +
+        data.projectName +
+        "</span></li>" +
+        "<li><span>设备系统：</span><span>" +
+        data.typeName +
+        "</span></li>" +
+        "<li><span>设备名称：</span><span>" +
+        data.name +
+        "</span></li>" +
+        "<li><span>设备编码：</span><span>" +
+        data.code +
+        "</span></li>" +
+        "</ul>";
 
       $("#message").html(list);
     },
-    echarts:  function(data, data_name) {
+    echarts: function(data, data_name) {
       var humidityxAxis = [];
       var humidityseries = [];
-      for (let i = 0; i < data.length; i++) {
+      for (var i = 0; i < data.length; i++) {
         humidityxAxis.push(data[i].time);
         humidityseries.push(data[i].value);
       }

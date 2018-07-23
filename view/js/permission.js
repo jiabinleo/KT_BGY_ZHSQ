@@ -124,7 +124,7 @@ $(function() {
         $("#tan_wrap").show();
         $("#basic_del").show();
         var delId = "";
-        for (let i = 0; i < $("#tableContent").find("li").length; i++) {
+        for (var i = 0; i < $("#tableContent").find("li").length; i++) {
           if (
             $("#tableContent")
               .find($("[name=xz]"))
@@ -146,7 +146,7 @@ $(function() {
       //删除
       $("#basic_del_yes").on("click", function() {
         $.ajax({
-          url: localhost + "/role/deleteById",
+          url: localhost + "/role/devareById",
           type: "POST",
           data: { id: delKey },
           beforeSend: function(xhr) {
@@ -194,8 +194,8 @@ $(function() {
       });
     },
     querydata: function(data) {
-      let lidata = "";
-      for (let i = 0; i < data.length; i++) {
+      var lidata = "";
+      for (var i = 0; i < data.length; i++) {
         lidata +=
           "<li key=" +
           data[i].id +
@@ -233,11 +233,11 @@ $(function() {
           if (data.success === "0") {
             menuListOk = [];
             data = data.result;
-            for (let i = 0; i < data.length; i++) {
+            for (var i = 0; i < data.length; i++) {
               menuListOk.push(data[i].id);
-              for (let j = 0; j < data[i].children.length; j++) {
+              for (var j = 0; j < data[i].children.length; j++) {
                 menuListOk.push(data[i].children[j].id);
-                for (let k = 0; k < data[i].children[j].children.length; k++) {
+                for (var k = 0; k < data[i].children[j].children.length; k++) {
                   menuListOk.push(data[i].children[j].children[k].id);
                 }
               }
@@ -251,47 +251,55 @@ $(function() {
       });
       //第一级菜单
       var menuleve = "";
-      for (let i = 0; i < data.length; i++) {
+      for (var i = 0; i < data.length; i++) {
         var check = "";
         if ($.inArray(parseInt(data[i].id), menuListOk) > -1) {
           check = "checked";
         }
-        menuleve += `<li class="menuLists-li">
-          <div class="menuLists-div"><input class="leve1" ${check} name="cb" key=${
-          data[i].id
-        } type="checkbox"/><span class="title1" id=${data[i].id}>${
-          data[i].menuName
-        }</span></div><ul style="padding-left:30px;display: none" class="ul1 menuleve1${i}"></ul></li>`;
+        menuleve +=
+          '<li class="menuLists-li">' +
+            '<div class="menuLists-div">'+
+              '<input class="leve1" ' + check + ' name="cb" key=' +  data[i].id + ' type="checkbox"/>'+
+              '<span class="title1" id=' + data[i].id + ">" + data[i].menuName + '</span>'+
+            '</div>'+
+            '<ul style="padding-left:30px;display: none" class="ul1 menuleve1' + i + '}">'+
+            '</ul>'+
+          '</li>';
         $(".menuleve2-ul").html("123");
       }
       $(".menuLists-ul").html(menuleve);
       //第二级菜单
       var leve2 = 0;
-      for (let i = 0; i < data.length; i++) {
+      for (var i = 0; i < data.length; i++) {
         var menuleve2 = "";
-        for (let j = 0; j < data[i].children.length; j++) {
+        for (var j = 0; j < data[i].children.length; j++) {
           leve2++;
           var check = "";
           if ($.inArray(parseInt(data[i].children[j].id), menuListOk) > -1) {
             check = "checked";
           }
-          menuleve2 += `<li class="menuleve2-li"><div class="menuleve2-div"><input class="leve2" ${check} name="cb" key=${
-            data[i].children[j].id
-          } type="checkbox"/><span class="title2" id=${
-            data[i].children[j].id
-          }>${
-            data[i].children[j].menuName
-          }</span></div><ul style="padding-left:30px;display: none" class="ul2 menuleve2${leve2}"></ul></li>`;
+          menuleve2 +=
+            '<li class="menuleve2-li"><div class="menuleve2-div"><input class="leve2" ' +
+            check +
+            ' name="cb" key=' +
+            data[i].children[j].id +
+            ' type="checkbox"/><span class="title2" id=' +
+            data[i].children[j].id +
+            ">" +
+            data[i].children[j].menuName +
+            '</span></div><ul style="padding-left:30px;display: none" class="ul2 menuleve2' +
+            leve2 +
+            '"></ul></li>';
         }
         $(".menuleve1" + i).html(menuleve2);
       }
       //第三级菜单
       var leve3 = 0;
-      for (let i = 0; i < data.length; i++) {
-        for (let j = 0; j < data[i].children.length; j++) {
+      for (var i = 0; i < data.length; i++) {
+        for (var j = 0; j < data[i].children.length; j++) {
           var menuleve3 = "";
           leve3++;
-          for (let k = 0; k < data[i].children[j].children.length; k++) {
+          for (var k = 0; k < data[i].children[j].children.length; k++) {
             var check = "";
 
             if (
@@ -302,11 +310,17 @@ $(function() {
             ) {
               check = "checked";
             }
-            menuleve3 += `<li class="menuleve3-li"><div class="menuleve3-div"><input ${check} name="cb" key=${
-              data[i].children[j].children[k].id
-            } type="checkbox"/><span class="title2" id=${
-              data[i].children[j].children[k].id
-            }>${data[i].children[j].children[k].menuName}</span></div></li>`;
+            menuleve3 +=
+              '<li class="menuleve3-li"><div class="menuleve3-div">' +
+              "<input " +
+              check +
+              ' name="cb" key=' +
+              data[i].children[j].children[k].id +
+              ' type="checkbox"/><span class="title2" id=' +
+              data[i].children[j].children[k].id +
+              ">" +
+              data[i].children[j].children[k].menuName +
+              "}</span></div></li>";
           }
           $(".menuleve2" + leve3).html(menuleve3);
         }

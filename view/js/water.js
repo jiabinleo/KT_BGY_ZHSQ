@@ -121,19 +121,20 @@ $(function() {
       });
     },
     mess: function(data) {
-      var list = `<ul>
-      <li><span>项目名称：</span><span>${data.projectName}</span></li>
-      <li><span>设备系统：</span><span>${data.typeName}</span></li>
-      <li><span>设备名称：</span><span>${data.name}</span></li>
-      <li><span>设备编码：</span><span>${data.code}</span></li>
-  </ul>`;
+      var list = 
+      '<ul>'+
+        '<li><span>项目名称：</span><span>'+data.projectName+'</span></li>'+
+        '<li><span>设备系统：</span><span>'+data.typeName+'</span></li>'+
+        '<li><span>设备名称：</span><span>'+data.name+'</span></li>'+
+        '<li><span>设备编码：</span><span>'+data.code+'</span></li>'+
+      '</ul>';
 
       $("#message").html(list);
     },
     echarts:  function(data, data_name) {
       var humidityxAxis = [];
       var ph = [];
-      for (let i = 0; i < data.length; i++) {
+      for (var i = 0; i < data.length; i++) {
         humidityxAxis.push(data[i].time);
         ph.push(data[i].value);
       }

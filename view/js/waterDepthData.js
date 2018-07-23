@@ -219,8 +219,8 @@ $(function() {
       });
     },
     querydata: function(data) {
-      let lidata = "";
-      for (let i = 0; i < data.length; i++) {
+      var lidata = "";
+      for (var i = 0; i < data.length; i++) {
         lidata +=
           "<li>" +
           '<span><input type="checkbox" name="xz">' +
@@ -272,7 +272,7 @@ $(function() {
     fenye: function(pageSum) {
       // 分页按钮
       var alis = "";
-      for (let i = 0; i < Math.ceil(pageSum / pageSize); i++) {
+      for (var i = 0; i < Math.ceil(pageSum / pageSize); i++) {
         alis +=
           "<a class=a" +
           (i + 1) +

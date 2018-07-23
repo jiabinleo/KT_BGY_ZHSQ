@@ -1,4 +1,4 @@
-//let localhost = "http://192.168.1.119:8088";
+//var localhost = "http://192.168.1.119:8088";
 var localhost = "http://14.116.184.77:8095";
 var pageNum = 1,
   pageSum,

@@ -1,5 +1,5 @@
 $(function() {
-  let localhost = "http://192.168.1.119:8088";
+  var localhost = "http://192.168.1.119:8088";
   var my_token = JSON.parse(sessionStorage.getItem("my_token")),
     seach1 = "", //查询条件
     seach2 = "",
@@ -220,8 +220,8 @@ $(function() {
     },
     querydata: function(data) {
       console.log(data)
-      let lidata = "";
-      for (let i = 0; i < data.length; i++) {
+      var lidata = "";
+      for (var i = 0; i < data.length; i++) {
         var dir = data[i].windMaxDirection ? data[i].windMaxDirection : "";
         var direction = "";
         if (dir > 337.5 || (dir > 0 && dir < 22.5)) {
@@ -305,7 +305,7 @@ $(function() {
     fenye: function(pageSum) {
       // 分页按钮
       var alis = "";
-      for (let i = 0; i < Math.ceil(pageSum / pageSize); i++) {
+      for (var i = 0; i < Math.ceil(pageSum / pageSize); i++) {
         alis +=
           "<a class=a" +
           (i + 1) +

@@ -52,7 +52,7 @@ $(function() {
       //分页
       var alis = "";
       var pagenum = Math.ceil(data.length / oness);
-      for (let i = 0; i < pagenum; i++) {
+      for (var i = 0; i < pagenum; i++) {
         alis +=
           "<a class=a" +
           (i + 1) +
@@ -64,12 +64,12 @@ $(function() {
       }
       $("#pageIndex").html(alis);
       //   //查询数据
-      let lidata = "";
+      var lidata = "";
       var firstnum = (pages - 1) * oness; //当前页第一条序号
       var endnum = pages * oness; //当前页最后一条序号
       var endnum = data.length > pages * oness ? pages * oness : data.length;
       var colors = "";
-      for (let i = firstnum; i < endnum; i++) {
+      for (var i = firstnum; i < endnum; i++) {
         lidata +=
           "<li data-id=" +
           i +

@@ -219,8 +219,8 @@ $(function() {
       });
     },
     querydata: function(data) {
-      let lidata = "";
-      for (let i = 0; i < data.length; i++) {
+      var lidata = "";
+      for (var i = 0; i < data.length; i++) {
         var dir = data[i].windMaxDirection ? data[i].windMaxDirection : "";
         var direction = "";
         if (dir > 337.5 || (dir > 0 && dir < 22.5)) {
@@ -303,7 +303,7 @@ $(function() {
     fenye: function(pageSum) {
       // 分页按钮
       var alis = "";
-      for (let i = 0; i < Math.ceil(pageSum / pageSize); i++) {
+      for (var i = 0; i < Math.ceil(pageSum / pageSize); i++) {
         alis +=
           "<a class=a" +
           (i + 1) +

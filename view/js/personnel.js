@@ -119,7 +119,7 @@ $(function() {
         var per_part = $("#per_part option:selected").val();
         ///
         var pro = $("#projectNameList").find("input[name='pro']");
-        for (let i = 0; i < pro.length; i++) {
+        for (var i = 0; i < pro.length; i++) {
           if (pro.eq(i).prop("checked") === true) {
             projectNameList += pro.eq(i).attr("key") + ",";
           }
@@ -285,7 +285,7 @@ $(function() {
           .attr("key")
           .split(",");
         var projectNames = $("#mod_projectNameList").find("input");
-        for (let i = 0; i < projectNames.length; i++) {
+        for (var i = 0; i < projectNames.length; i++) {
           if (
             $.inArray($(projectNames[i]).attr("key"), projectCodeListArr) >= 0
           ) {
@@ -315,7 +315,7 @@ $(function() {
 
         var projectNames = $("#mod_projectNameList").find("input");
         var xzprojectNames = "";
-        for (let i = 0; i < projectNames.length; i++) {
+        for (var i = 0; i < projectNames.length; i++) {
           if (projectNames[i].checked) {
             xzprojectNames += projectNames.eq(i).attr("key") + ",";
           }
@@ -368,7 +368,7 @@ $(function() {
       $("#basic_del_yes").on("click", function() {
         $("#basic_del").hide();
         $.ajax({
-          url: localhost + "/user/deleteByIds",
+          url: localhost + "/user/devareByIds",
           type: "POST",
           data: { ids: delKey },
           beforeSend: function(xhr) {
@@ -433,7 +433,7 @@ $(function() {
         $("#tan_wrap").show();
         $("#basic_del").show();
         var delId = "";
-        for (let i = 0; i < $("#tableContent").find("li").length; i++) {
+        for (var i = 0; i < $("#tableContent").find("li").length; i++) {
           if (
             $("#tableContent")
               .find($("[name=xz]"))
@@ -547,8 +547,8 @@ $(function() {
       });
     },
     querydata: function(data) {
-      let lidata = "";
-      for (let i = 0; i < data.length; i++) {
+      var lidata = "";
+      for (var i = 0; i < data.length; i++) {
         lidata +=
           "<li key=" +
           data[i].id +
@@ -710,7 +710,7 @@ $(function() {
     fenye: function(pageSum) {
       // 分页按钮
       var alis = "";
-      for (let i = 0; i < Math.ceil(pageSum / pageSize); i++) {
+      for (var i = 0; i < Math.ceil(pageSum / pageSize); i++) {
         alis +=
           "<a class=a" +
           (i + 1) +
@@ -737,10 +737,13 @@ $(function() {
     },
     projectNameList: function(data) {
       var projectName = "";
-      for (let i = 0; i < data.length; i++) {
-        projectName += `<input type="checkbox" name="pro" key="${
-          data[i].key
-        }" name="" id=""><label>${data[i].value}</label>`;
+      for (var i = 0; i < data.length; i++) {
+        projectName += 
+          '<input type="checkbox" name="pro" key="'+
+          data[i].key+
+          '" name="" id=""><label>'+
+          data[i].value+
+          '</label>';
       }
       $("#projectNameList").html(projectName);
       $("#mod_projectNameList").html(projectName);

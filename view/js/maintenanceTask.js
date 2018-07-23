@@ -217,7 +217,7 @@ $(function() {
     },
     querydata: function(data) {
       var lidata = "";
-      for (let i = 0; i < data.length; i++) {
+      for (var i = 0; i < data.length; i++) {
         lidata +=
           "<li cs=" +
           data[i].maintainParams +
@@ -339,7 +339,7 @@ $(function() {
 
       var contentRight = "";
       for (var index in lis2) {
-        for (let i = 0; i < data.length; i++) {
+        for (var i = 0; i < data.length; i++) {
           if (data[i].id == index) {
             contentRight +=
               "<li><span>" +
