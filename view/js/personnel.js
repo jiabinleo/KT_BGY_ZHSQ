@@ -368,7 +368,7 @@ $(function() {
       $("#basic_del_yes").on("click", function() {
         $("#basic_del").hide();
         $.ajax({
-          url: localhost + "/user/devareByIds",
+          url: localhost + "/user/deleteByIds",
           type: "POST",
           data: { ids: delKey },
           beforeSend: function(xhr) {

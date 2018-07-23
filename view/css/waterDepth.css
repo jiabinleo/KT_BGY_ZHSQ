@@ -176,20 +176,11 @@ section .main {
 }
 section .message {
   float: right;
-  width: 20%;
   margin-top: 48px;
 }
-section .message ul {
-  margin: 10px;
-}
-section .message ul li {
-  width: 260px;
+section .message table tr {
   line-height: 2;
 }
-section .message ul li span {
-  width: 100px;
-  display: inline-block;
-}
-section .message ul li span:last-of-type {
-  width: 160px;
+section .message table tr td {
+  border: solid 1px #cccccc;
 }

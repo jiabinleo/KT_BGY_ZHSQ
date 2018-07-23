@@ -129,13 +129,13 @@ $(function() {
       });
     },
     mess:  function(data) {
-      var list = '<ul>'+
-      '<li><span>项目名称：</span><span>'+data.projectName+'</span></li>'+
-      '<li><span>设备系统：</span><span>'+data.typeName+'</span></li>'+
-      '<li><span>设备名称：</span><span>'+data.name+'</span></li>'+
-      '<li><span>设备编码：</span><span>'+data.code+'</span></li>'+
-	'</ul>';
-
+      var list = 
+      '<table>'+
+        '<tr><td>项目名称：</td><td>'+data.projectName+'</td></tr>'+
+        '<tr><td>设备系统：</td><td>'+data.typeName+'</td></tr>'+
+        '<tr><td>设备名称：</td><td>'+data.name+'</td></tr>'+
+        '<tr><td>设备1编码：</td><td title='+data.code+'>'+data.code+'</td></tr>'+
+      '</table>'
       $("#message").html(list);
     },
     echarts:  function(data, data_name) {
