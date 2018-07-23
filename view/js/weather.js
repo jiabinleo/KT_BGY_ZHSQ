@@ -199,7 +199,8 @@ $(function() {
             name: data_name,
             type: "line",
             smooth: true,
-            data: humidityseries
+            data: humidityseries,
+            itemStyle : { normal: {label : {show: true}}}
           }
         ]
       };
