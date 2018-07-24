@@ -19,8 +19,8 @@ body {
 }
 header {
   width: 100%;
-  height: 80px;
-  line-height: 80px;
+  height: 60px;
+  line-height: 60px;
   font-size: 22px;
   color: #333333;
   border-bottom: 1px solid #eeeeee;
@@ -345,34 +345,40 @@ section {
   .basic-add {
     display: none;
     position: absolute;
-    width: 960px;
-    height: 600px;
+    width: 80%;
+    max-height:80%;
     left: 50%;
     top: 50%;
-    margin-left: -480px; 
-    margin-top: -300px;
+    transform: translate(-50%,-50%);
     z-index: 11112;
     background-color: #ffffff;
+    border-radius: 5px;
+    overflow-y: auto;
     .basic-add-top {
-      padding: 30px;
-      p {
-      }
+      padding: 2%;
       ul {
         width: 100%;
         overflow: hidden;
         li {
-          width: 50%;
+          width: 49%;
           float: left;
           margin-top: 20px;
+          mathin-left:1%;
           select {
             margin-top: 14px;
-            width: 420px;
+            width: 90%;
             height: 35px;
+            border: none;
+            border: solid 1px #d7d7d7;
+            margin-left: 5%;
           }
           input {
-            width: 420px;
+            width: 90%;
             height: 35px;
             margin-top: 14px;
+            border: none;
+            border: solid 1px #d7d7d7;
+            margin-left: 5%;
           }
           &.projectList {
             width: 100%;

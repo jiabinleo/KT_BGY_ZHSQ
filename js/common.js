@@ -2,7 +2,15 @@
 var localhost = "http://14.116.184.77:8095";
 var pageNum = 1,
   pageSum,
-  pageSize = 6;
+  pageSize = 5;
+  if($(window).height()>=750){
+    pageSize = 10;
+  }else if($(window).height()>=550&&$(window).height()<750){
+    pageSize = 5;
+  }else if($(window).height()>=500&&$(window).height()<550){
+    pageSize = 3;
+  }
+  console.log($(window).height())
 var common = {
   listen: function() {
     $(document).on("click", function() {
