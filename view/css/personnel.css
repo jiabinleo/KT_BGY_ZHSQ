@@ -422,23 +422,21 @@ section .menu-bottom-wrap .menu-bototm .pageIndex a:first-of-type {
   width: 49%;
   float: left;
   margin-top: 20px;
-  mathin-left: 1%;
+  margin-left: 1%;
 }
 .tan-wrap .basic-add .basic-add-top ul li select {
   margin-top: 14px;
-  width: 90%;
+  width: 96%;
   height: 35px;
   border: none;
   border: solid 1px #d7d7d7;
-  margin-left: 5%;
 }
 .tan-wrap .basic-add .basic-add-top ul li input {
-  width: 90%;
+  width: 96%;
   height: 35px;
   margin-top: 14px;
   border: none;
   border: solid 1px #d7d7d7;
-  margin-left: 5%;
 }
 .tan-wrap .basic-add .basic-add-top ul li.projectList {
   width: 100%;
@@ -461,7 +459,7 @@ section .menu-bottom-wrap .menu-bototm .pageIndex a:first-of-type {
 .tan-wrap .basic-add .basic-add-bottom {
   overflow: hidden;
   margin-top: 15px;
-  border-top: 1px solid #eeeeee;
+  border-top: 1px solid #d7d7d7;
 }
 .tan-wrap .basic-add .basic-add-bottom input {
   float: left;
@@ -470,7 +468,7 @@ section .menu-bottom-wrap .menu-bototm .pageIndex a:first-of-type {
   background: none;
   height: 50px;
   outline: none;
-  border-left: #eeeeee solid 1px;
+  border-left: #d7d7d7 solid 1px;
 }
 .tan-wrap .basic-add .basic-add-bottom input:first-of-type {
   color: #1ea0e3;
