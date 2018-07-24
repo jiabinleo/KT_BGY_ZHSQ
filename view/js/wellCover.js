@@ -55,21 +55,21 @@ $(function() {
         data_name = "偏移角度";
         c = "°";
         wellCover.querydata(equipmentCode);
-        wellCover.echarts("angle_current", "偏移角度");
+        wellCover.echarts("angleCurrent", "偏移角度");
         
       });
       $("#top2_left").on("click", "input", function() {
         data_name = $(this).attr("data-id");
         switch ($(this).attr("data-id")) {
-          case "angle_current":
+          case "angleCurrent":
             data_name = "偏移角度";
             c = "°";
             break;
-          case "rainStatu":
+          case "alertOutWaterline":
             data_name = "雨水状态";
             c = "mm";
             break;
-          case "voltage":
+          case "alertLowbattery":
             data_name = "电池电压";
             c = "V";
             break;
