@@ -13,13 +13,14 @@ $(function() {
       $.ajax({
         url: localhost + "/system/getSysDictionary?code=PROJECT",
         type: "get",
+        async:false,
         beforeSend: function(xhr) {
           xhr.setRequestHeader("login_token", my_token);
         },
         success: function(data) {
           console.log(data)
           if (data.success === "0") {
-            for (var i = data.result.length - 1; i >= 0; i--) {
+            for (var i = data.result.length - 1; i >= 1; i--) {
               $(".projectName").prepend(
                 '<option value="' +
                   data.result[i].key +
@@ -29,76 +30,31 @@ $(function() {
               );
             }
             $(".projectName").prepend(
-              '<option value="" selected = "selected">选择项目</option>'
+              '<option value="'+data.result[0].key+'" selected = "selected">'+data.result[0].value+'</option>'
             );
           }
+          water.querysbName()
+          setTimeout(() => {
+            console.log($(".sbname option:selected").attr("value"));
+            water.querydata($(".sbname option:selected").attr("value"))
+          },200);
         },
         error: function(err) {
         }
       });
-
-      $(".projectName").change(function() {
-        seach1 = $(".projectName").val();
-        $.ajax({
-          url: localhost + "/equipmentBase/getEquipmentCodeList",
-          type: "POST",
-          data: {
-            projectCode: seach1,
-            type: "02"
-          },
-          beforeSend: function(xhr) {
-            xhr.setRequestHeader("login_token", my_token);
-          },
-          success: function(data) {
-            if (data.success === "0") {
-              $(".sbname").html("");
-              for (var i = data.result.length - 1; i >= 0; i--) {
-                $(".sbname").prepend(
-                  '<option value="' +
-                    data.result[i].key +
-                    '">' +
-                    data.result[i].value +
-                    "</option>"
-                );
-              }
-              $(".sbname").prepend(
-                '<option value="" selected = "selected">选择设备名称</option>'
-              );
-              $(".sbnamen").show();
-              $(".sbname").show();
-            }
-          },
-          error: function(err) {
-          }
-        });
-      });
-      //是否禁用查询按钮
-      $(".sbname").on("click",function(){
-        console.log($(this).val())
-        if($(this).val()==""){
-          $("#seach").removeClass("seach")
-          $("#seach").addClass("seachNo")
-          $("#seach").attr("disabled",true)
-        }else{
-          $("#seach").removeClass("seachNo")
-          $("#seach").addClass("seach")
-          $("#seach").attr("disabled",false)
-        }
-      })
       $(".projectName").change("click",function(){
-          $("#seach").removeClass("seach")
-          $("#seach").addClass("seachNo")
-          $("#seach").attr("disabled",true)
+        water.querysbName()
       })
       //查询查询
       $("#seach").on("click", function() {
         seach3 = $(".sbname").val();
         var equipmentCode = seach3;
         $("#ph_radio").prop("checked", "true")
-        water.querydata(equipmentCode);
-        water.echarts("ph", "PH值");
         data_name = "PH值";
         c = "";
+        water.querydata(equipmentCode);
+        water.echarts("ph", "PH值");
+        
       });
       $("#top2_left").on("click", "input", function() {
         data_name = $(this).attr("data-id");
@@ -125,6 +81,41 @@ $(function() {
         water.echarts(data_json[$(this).attr("data-id")], data_name);
       });
     },
+    querysbName:function(){
+      seach1 = $(".projectName").val();
+        $.ajax({
+          url: localhost + "/equipmentBase/getEquipmentCodeList",
+          type: "POST",
+          data: {
+            projectCode: seach1,
+            type: "02"
+          },
+          beforeSend: function(xhr) {
+            xhr.setRequestHeader("login_token", my_token);
+          },
+          success: function(data) {
+            if (data.success === "0") {
+              $(".sbname").html("");
+              for (var i = data.result.length - 1; i >= 1; i--) {
+                $(".sbname").prepend(
+                  '<option value="' +
+                    data.result[i].key +
+                    '">' +
+                    data.result[i].value +
+                    "</option>"
+                );
+              }
+              $(".sbname").prepend(
+                '<option value="'+data.result[0].key+'" selected = "selected">'+data.result[0].value+'</option>'
+              );
+              $(".sbnamen").show();
+              $(".sbname").show();
+            }
+          },
+          error: function(err) {
+          }
+        });
+    },
     //数据查询
     querydata:  function(equipmentCode) {
       $.ajax({
@@ -137,6 +128,7 @@ $(function() {
           xhr.setRequestHeader("login_token", my_token);
         },
         success: function(data) {
+          console.log(data)
           if (data.success === "0") {
           data_json = data.result.element;
           water.echarts(data.result.element.ph, data_name);
@@ -157,21 +149,27 @@ $(function() {
       $("#message").html(list);
     },
     echarts:  function(data, data_name) {
-      var humidityxAxis = [];
-      var ph = [];
-      for (var i = 0; i < data.length; i++) {
-        humidityxAxis.push(data[i].time);
-        ph.push(data[i].value);
-      }
+      if (data.length != "0" && data_name != "") {
+        var humidityxAxis = [];
+        var ph = [];
+        for (var i = 0; i < data.length; i++) {
+          humidityxAxis.push(data[i].time);
+          ph.push(data[i].value);
+        }
+      }else{
+        var humidityxAxis = ['','','','','','',''];
+        var ph = ['','','','','','',''];
+      }     
+
       var myChart = echarts.init(document.getElementById("main"));
 
       // 指定图表的配置项和数据
       var option = {
         title: {
-          // text: "ECharts 入门示例"
         },
         tooltip: {
           trigger: "axis",
+          formatter: '{a0}:{c0}'+c,
           axisPointer: {
             type: "cross",
             animation: false,
