@@ -69,6 +69,24 @@ $(function() {
           error: function(err) {}
         });
       });
+      //是否禁用查询按钮
+      $(".sbname").on("click",function(){
+        console.log($(this).val())
+        if($(this).val()==""){
+          $("#seach").removeClass("seach")
+          $("#seach").addClass("seachNo")
+          $("#seach").attr("disabled",true)
+        }else{
+          $("#seach").removeClass("seachNo")
+          $("#seach").addClass("seach")
+          $("#seach").attr("disabled",false)
+        }
+      })
+      $(".projectName").change("click",function(){
+          $("#seach").removeClass("seach")
+          $("#seach").addClass("seachNo")
+          $("#seach").attr("disabled",true)
+      })
       //查询查询
       $("#seach").on("click", function() {
         seach3 = $(".sbname").val();
@@ -76,12 +94,15 @@ $(function() {
         $("#depth_radio").prop("checked", "true");
         waterDepth.querydata(equipmentCode);
         waterDepth.echarts("depth", "水位高度");
+        data_name = "水位高度";
+        c = "mm";
       });
       $("#top2_left").on("click", "input", function() {
         data_name = $(this).attr("data-id");
         switch ($(this).attr("data-id")) {
           case "depth":
             data_name = "水位高度";
+            c = "mm"
             break;
           default:
             break;
@@ -101,9 +122,11 @@ $(function() {
           xhr.setRequestHeader("login_token", my_token);
         },
         success: function(data) {
-          data_json = data.result.element;
-          waterDepth.echarts(data.result.element.depth, data_name);
-          waterDepth.mess(data.result.equipmentBase);
+          if (data.success === "0") {
+            data_json = data.result.element;
+            waterDepth.echarts(data.result.element.depth, data_name);
+            waterDepth.mess(data.result.equipmentBase);
+          }
         },
         error: function(data) {}
       });
@@ -159,7 +182,7 @@ $(function() {
         yAxis: {
           type: "value",
           axisLabel: {
-            formatter: "{value} mm"
+            formatter: "{value}" + c
           },
           axisPointer: {
             snap: true
@@ -175,7 +198,8 @@ $(function() {
             name: data_name,
             type: "line",
             smooth: true,
-            data: humidityseries
+            data: humidityseries,
+            itemStyle : { normal: {label : {show: true}}}
           }
         ]
       };

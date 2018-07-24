@@ -15,31 +15,41 @@ $(function() {
         $("#basic_add").show();
       });
       $("#basic_add_yes").on("click", function() {
-        var roleName = $("#basicAddName").val();
+        var roleName = $.trim($("#basicAddName").val());
         var menus = "";
-        $.ajax({
-          dataType: "json",
-          url: localhost + "/role/add",
-          type: "POST",
-          data: {
-            roleName: roleName,
-            menus: menus
-          },
-          beforeSend: function(xhr) {
-            xhr.setRequestHeader("login_token", my_token);
-          },
-          success: function(data) {
-            $("#tan_yes").html(data.msg);
-            $("#basic_add").hide();
-            $("#tan_yes").show();
-            permission.querybd();
-            setTimeout(function() {
-              $("#tan_yes").hide();
-              $("#tan_wrap").hide();
-            }, 2000);
-          },
-          error: function(err) {}
-        });
+        if (roleName == "") {
+          $("#tan_yes").html("新增角色不能为空！");
+          $("#basic_add").hide();
+          $("#tan_yes").show();
+          setTimeout(function() {
+            $("#tan_yes").hide();
+            $("#tan_wrap").hide();
+          }, 2000);
+        } else {
+          $.ajax({
+            dataType: "json",
+            url: localhost + "/role/add",
+            type: "POST",
+            data: {
+              roleName: roleName,
+              menus: menus
+            },
+            beforeSend: function(xhr) {
+              xhr.setRequestHeader("login_token", my_token);
+            },
+            success: function(data) {
+              $("#tan_yes").html(data.msg);
+              $("#basic_add").hide();
+              $("#tan_yes").show();
+              permission.querybd();
+              setTimeout(function() {
+                $("#tan_yes").hide();
+                $("#tan_wrap").hide();
+              }, 2000);
+            },
+            error: function(err) {}
+          });
+        }
       });
       $("#basic_add_no").on("click", function() {
         $("#tan_wrap").hide();
@@ -258,13 +268,23 @@ $(function() {
         }
         menuleve +=
           '<li class="menuLists-li">' +
-            '<div class="menuLists-div">'+
-              '<input class="leve1" ' + check + ' name="cb" key=' +  data[i].id + ' type="checkbox"/>'+
-              '<span class="title1" id=' + data[i].id + ">" + data[i].menuName + '</span>'+
-            '</div>'+
-            '<ul style="padding-left:30px;display: none" class="ul1 menuleve1' + i + '">'+
-            '</ul>'+
-          '</li>';
+          '<div class="menuLists-div">' +
+          '<input class="leve1" ' +
+          check +
+          ' name="cb" key=' +
+          data[i].id +
+          ' type="checkbox"/>' +
+          '<span class="title1" id=' +
+          data[i].id +
+          ">" +
+          data[i].menuName +
+          "</span>" +
+          "</div>" +
+          '<ul style="padding-left:30px;display: none" class="ul1 menuleve1' +
+          i +
+          '">' +
+          "</ul>" +
+          "</li>";
         $(".menuleve2-ul").html("123");
       }
       $(".menuLists-ul").html(menuleve);

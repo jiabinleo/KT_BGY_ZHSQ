@@ -156,6 +156,11 @@ section .top1 input.seach {
   border: none;
   background: -webkit-linear-gradient(90deg, #1ea0e3, #32b5ee, #35bcf0);
 }
+section .top1 input.seachNo {
+  color: #ffffff;
+  border: none;
+  background: -webkit-linear-gradient(90deg, #cccccc, #cccccc, #cccccc);
+}
 section .top2 {
   overflow: hidden;
   width: 100%;

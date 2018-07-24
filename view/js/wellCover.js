@@ -69,6 +69,24 @@ $(function() {
           error: function(err) {}
         });
       });
+      //是否禁用查询按钮
+      $(".sbname").on("click",function(){
+        console.log($(this).val())
+        if($(this).val()==""){
+          $("#seach").removeClass("seach")
+          $("#seach").addClass("seachNo")
+          $("#seach").attr("disabled",true)
+        }else{
+          $("#seach").removeClass("seachNo")
+          $("#seach").addClass("seach")
+          $("#seach").attr("disabled",false)
+        }
+      })
+      $(".projectName").change("click",function(){
+          $("#seach").removeClass("seach")
+          $("#seach").addClass("seachNo")
+          $("#seach").attr("disabled",true)
+      })
       //查询查询
       $("#seach").on("click", function() {
         seach3 = $(".sbname").val();
@@ -76,6 +94,8 @@ $(function() {
         $("#alarmAng_radio").prop("checked", "true");
         wellCover.querydata(equipmentCode);
         wellCover.echarts("angle_current", "偏移角度");
+        data_name = "偏移角度";
+        c = "°";
       });
       $("#top2_left").on("click", "input", function() {
         data_name = $(this).attr("data-id");
@@ -93,8 +113,6 @@ $(function() {
             c = "V";
             break;
         }
-        console.log(data_json);
-        console.log($(this).attr("data-id"));
         wellCover.echarts(data_json[$(this).attr("data-id")], data_name);
       });
     },
@@ -183,7 +201,8 @@ $(function() {
             name: data_name,
             type: "line",
             smooth: true,
-            data: humidityseries
+            data: humidityseries,
+            itemStyle : { normal: {label : {show: true}}}
           }
         ]
       };

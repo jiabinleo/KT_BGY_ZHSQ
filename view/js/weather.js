@@ -70,6 +70,24 @@ $(function() {
           error: function(err) {}
         });
       });
+      //是否禁用查询按钮
+      $(".sbname").on("click",function(){
+        console.log($(this).val())
+        if($(this).val()==""){
+          $("#seach").removeClass("seach")
+          $("#seach").addClass("seachNo")
+          $("#seach").attr("disabled",true)
+        }else{
+          $("#seach").removeClass("seachNo")
+          $("#seach").addClass("seach")
+          $("#seach").attr("disabled",false)
+        }
+      })
+      $(".projectName").change("click",function(){
+          $("#seach").removeClass("seach")
+          $("#seach").addClass("seachNo")
+          $("#seach").attr("disabled",true)
+      })
       //查询查询
       $("#seach").on("click", function() {
         seach3 = $(".sbname").val();
@@ -77,6 +95,8 @@ $(function() {
         $("#temp_radio").prop("checked", "true")
         weather.querydata(equipmentCode);
         weather.echarts("temp", "温度");
+        data_name = "温度";
+        c = "°C";
       });
       $("#top2_left").on("click", "input", function() {
         data_name = $(this).attr("data-id");
@@ -183,11 +203,6 @@ $(function() {
           axisPointer: {
             snap: true
           }
-        },
-        grid: {
-          left: '8%',
-          bottom: '3%',
-          containLabel: true
         },
         grid: {
           left: '8%',

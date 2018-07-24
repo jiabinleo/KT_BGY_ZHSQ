@@ -3,7 +3,7 @@ $(function() {
     seach1 = "", //查询条件
     data_json,
     data_name = "PH值",
-    c = "°C";
+    c = "";
   var water = {
     init: function() {
       water.listent();
@@ -72,6 +72,24 @@ $(function() {
           }
         });
       });
+      //是否禁用查询按钮
+      $(".sbname").on("click",function(){
+        console.log($(this).val())
+        if($(this).val()==""){
+          $("#seach").removeClass("seach")
+          $("#seach").addClass("seachNo")
+          $("#seach").attr("disabled",true)
+        }else{
+          $("#seach").removeClass("seachNo")
+          $("#seach").addClass("seach")
+          $("#seach").attr("disabled",false)
+        }
+      })
+      $(".projectName").change("click",function(){
+          $("#seach").removeClass("seach")
+          $("#seach").addClass("seachNo")
+          $("#seach").attr("disabled",true)
+      })
       //查询查询
       $("#seach").on("click", function() {
         seach3 = $(".sbname").val();
@@ -79,21 +97,27 @@ $(function() {
         $("#ph_radio").prop("checked", "true")
         water.querydata(equipmentCode);
         water.echarts("ph", "PH值");
+        data_name = "PH值";
+        c = "";
       });
       $("#top2_left").on("click", "input", function() {
         data_name = $(this).attr("data-id");
         switch ($(this).attr("data-id")) {
           case "ph":
             data_name = "PH值";
+            c = "";
             break;
           case "temp":
             data_name = "温度";
+            c = "°C";
             break;
           case "turbidity":
             data_name = "浑浊度";
+            c = "";
             break;
           case "chlorine":
             data_name = "含氯气";
+            c = "";
             break;
           default:
             break;
@@ -113,9 +137,11 @@ $(function() {
           xhr.setRequestHeader("login_token", my_token);
         },
         success: function(data) {
+          if (data.success === "0") {
           data_json = data.result.element;
           water.echarts(data.result.element.ph, data_name);
           water.mess(data.result.equipmentBase);
+          }
         },
         error: function(data) {}
       });
@@ -168,7 +194,15 @@ $(function() {
         xAxis: {
           data: humidityxAxis
         },
-        yAxis: {},
+        yAxis: {
+          type: "value",
+          axisLabel: {
+            formatter: "{value}" + c
+          },
+          axisPointer: {
+            snap: true
+          }
+        },
         grid: {
           left: '8%',
           bottom: '3%',
@@ -179,7 +213,8 @@ $(function() {
             name: data_name,
             type: "line",
             smooth: true,
-            data: ph
+            data: ph,
+            itemStyle : { normal: {label : {show: true}}}
           }
         ]
       };
