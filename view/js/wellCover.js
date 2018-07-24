@@ -128,7 +128,6 @@ $(function() {
           xhr.setRequestHeader("login_token", my_token);
         },
         success: function(data) {
-          console.log(data);
           data_json = data.result.element;
           wellCover.echarts(data.result.element.angleCurrent, data_name);
           wellCover.mess(data.result.equipmentBase);

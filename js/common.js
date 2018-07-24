@@ -7,8 +7,10 @@ var pageNum = 1,
     pageSize = 10;
   }else if($(window).height()>=550&&$(window).height()<750){
     pageSize = 5;
-  }else if($(window).height()>=500&&$(window).height()<550){
+  }else if($(window).height()>=450&&$(window).height()<550){
     pageSize = 3;
+  } if($(window).height()<450){
+    pageSize = 2;
   }
   console.log($(window).height())
 var common = {

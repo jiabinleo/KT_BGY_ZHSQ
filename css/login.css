@@ -201,10 +201,11 @@ body {
 .wraper .inner .right .right-wrap .sub {
   width: 520px;
   height: 80px;
-  background:#1ea0e3;
-  background: -moz-linear-gradient(top, #1ea0e3, #32b5ee, #35bcf0); 
-  background: -o-linear-gradient(top,#1ea0e3, #32b5ee, #35bcf0); 
-  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1ea0e3), to(#35bcf0));
+  background: -ms-linear-gradient(-180deg, #1ea0e3, #32b5ee, #35bcf0);
+  background: -moz-linear-gradient(left, #1ea0e3, #32b5ee, #35bcf0);
+  background: -o-linear-gradient(left, #1ea0e3, #32b5ee, #35bcf0);
+  background: -webkit-gradient(linear, 100% 100%, 0% 0%, from(#1ea0e3), to(#35bcf0));
+  filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr='#1ea0e3', endColorStr='#35bcf0', gradientType='0');
   border: none;
   outline: none;
   font-size: 24px;

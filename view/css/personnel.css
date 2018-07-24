@@ -178,6 +178,7 @@ section .top2 input:hover {
 }
 section .tables {
   width: 100%;
+  min-width: 900px;
   overflow-x: auto;
   margin-top: 30px;
 }
@@ -188,13 +189,13 @@ section .tables .titles,
 section .tables .tableContent {
   color: #333333;
   font-size: 12px;
+  width: 100%;
 }
 section .tables .titles li,
 section .tables .tableContent li {
   line-height: 43px;
   white-space: nowrap;
   width: 100%;
-  min-width: 1300px;
   overflow: hidden;
 }
 section .tables .titles li:nth-of-type(even),
@@ -207,7 +208,7 @@ section .tables .tableContent li span {
   display: inline-block;
   text-align: left;
   float: left;
-  width: 130px;
+  width: 11%;
 }
 section .tables .titles li span:first-of-type,
 section .tables .tableContent li span:first-of-type {
@@ -218,30 +219,6 @@ section .tables .titles li span:first-of-type input,
 section .tables .tableContent li span:first-of-type input {
   vertical-align: -2px;
   margin: 10px;
-}
-section .tables .titles li span:nth-of-type(2),
-section .tables .tableContent li span:nth-of-type(2) {
-  width: 200px;
-}
-section .tables .titles li span:nth-of-type(3),
-section .tables .tableContent li span:nth-of-type(3) {
-  width: 150px;
-}
-section .tables .titles li span:nth-of-type(4),
-section .tables .tableContent li span:nth-of-type(4) {
-  width: 180px;
-}
-section .tables .titles li span:nth-of-type(8),
-section .tables .tableContent li span:nth-of-type(8) {
-  width: 150px;
-}
-section .tables .titles li span:nth-of-type(9),
-section .tables .tableContent li span:nth-of-type(9) {
-  width: 150px;
-}
-section .tables .titles li span:nth-of-type(10),
-section .tables .tableContent li span:nth-of-type(10) {
-  width: 150px;
 }
 section .tables .titles li span:last-of-type a,
 section .tables .tableContent li span:last-of-type a {

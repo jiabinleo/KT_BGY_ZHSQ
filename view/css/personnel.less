@@ -111,6 +111,7 @@ section {
   }
   .tables {
     width: 100%;
+    min-width:900px;
     overflow-x: auto;
     margin-top: 30px;
     // font-family: "PINGFANGEXTRALIGHT";
@@ -123,11 +124,11 @@ section {
     .tableContent {
       color: #333333;
       font-size: 12px;
+      width: 100%;
       li {
         line-height: 43px;
         white-space: nowrap;
         width: 100%;
-        min-width: 1300px;
         overflow: hidden;
         &:nth-of-type(even) {
           background: #f5f9fc;
@@ -137,7 +138,7 @@ section {
           display: inline-block;
           text-align: left;
           float: left;
-          width: 130px;
+          width: 11%;
           &:first-of-type {
             margin-left: 0;
             width: 100px;
@@ -145,24 +146,6 @@ section {
               vertical-align: -2px;
               margin: 10px;
             }
-          }
-          &:nth-of-type(2) {
-            width: 200px;
-          }
-          &:nth-of-type(3) {
-            width: 150px;
-          }
-          &:nth-of-type(4) {
-            width: 180px;
-          }
-          &:nth-of-type(8) {
-            width: 150px;
-          }
-          &:nth-of-type(9) {
-            width: 150px;
-          }
-          &:nth-of-type(10) {
-            width: 150px;
           }
           &:last-of-type {
             a {
