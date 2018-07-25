@@ -199,7 +199,7 @@ section .tables .tableContent li span {
   display: inline-block;
   text-align: left;
   float: left;
-  width: 12%;
+  width: 11%;
 }
 section .tables .titles li span:first-of-type,
 section .tables .tableContent li span:first-of-type {
@@ -270,7 +270,7 @@ section .menu-bottom-wrap .menu-bototm .pageIndex a {
   display: inline-block;
   width: 40px;
   height: 40px;
-  border: solid 1px #eeeeee;
+  border: solid 1px #d7d7d7;
   text-align: center;
   line-height: 40px;
   font-size: 14px;
