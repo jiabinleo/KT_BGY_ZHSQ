@@ -144,7 +144,7 @@ $(function() {
         '<tr><td>项目名称：</td><td>'+data.projectName+'</td></tr>'+
         '<tr><td>设备系统：</td><td>'+data.typeName+'</td></tr>'+
         '<tr><td>设备名称：</td><td>'+data.name+'</td></tr>'+
-        '<tr><td>设备1编码：</td><td title='+data.code+'>'+data.code+'</td></tr>'+
+        '<tr><td>设备编码：</td><td title='+data.code+'>'+data.code+'</td></tr>'+
       '</table>'
       $("#message").html(list);
     },
@@ -202,7 +202,7 @@ $(function() {
           }
         },
         grid: {
-          left: '8%',
+          left: '13%',
           bottom: '3%',
           containLabel: true
         },

@@ -147,7 +147,7 @@ $(function() {
         "<tr><td>设备名称：</td><td>" +
         data.name +
         "</td></tr>" +
-        "<tr><td>设备1编码：</td><td title=" +
+        "<tr><td>设备编码：</td><td title=" +
         data.code +
         ">" +
         data.code +
@@ -208,7 +208,7 @@ $(function() {
           }
         },
         grid: {
-          left: "8%",
+          left: "13%",
           bottom: "3%",
           containLabel: true
         },
