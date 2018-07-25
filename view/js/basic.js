@@ -50,7 +50,6 @@ $(function() {
         error: function(err) {}
       });
       basic.fenyenum();
-
       //表单筛选
       basic.querybd(seach1, seach2, seach3, pageNum, pageSize);
 

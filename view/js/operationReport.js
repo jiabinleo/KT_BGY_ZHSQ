@@ -1,70 +1,225 @@
 $(function() {
+  var my_token = JSON.parse(sessionStorage.getItem("my_token")),
+    seach1 = "", //查询条件
+    seach2 = "",
+    seach3 = "";
   var operationReport = {
     init: function() {
       operationReport.listent();
     },
     listent: function() {
+      // 项目名称
       $.ajax({
-        dataType: "json",
-        // url: "/view/js/operationReport.json",
-        success: function(data) {
-          operationReport.fenye(data.rows);
+        url: localhost + "/system/getSysDictionary?code=PROJECT",
+        type: "get",
+        beforeSend: function(xhr) {
+          xhr.setRequestHeader("login_token", my_token);
         },
-        error: function() {
+        success: function(data) {
+          if (data.success === "0") {
+            operationReport.selepro(data.result);
+          }
+        },
+        error: function(err) {}
+      });
+      // 设备系统
+      $.ajax({
+        url: localhost + "/system/getSysDictionary?code=EQUIPMENT",
+        type: "get",
+        beforeSend: function(xhr) {
+          xhr.setRequestHeader("login_token", my_token);
+        },
+        success: function(data) {
+          if (data.success === "0") {
+            operationReport.seleequi(data.result);
+          }
+        },
+        error: function(err) {}
+      });
+      operationReport.fenyenum();
+      //表单筛选
+      operationReport.querybd(seach1, seach2, seach3, pageNum, pageSize);
+
+      $("#seach").on("click", function() {
+        seach1 = $(".projectName option:selected").val();
+        seach2 = $(".equi option:selected").val();
+        seach3 = $(".sbname").val();
+        operationReport.fenyenum();
+        operationReport.querybd(seach1, seach2, seach3, pageNum, pageSize);
+      });
+
+      // 分页
+      $("#pageIndex").on("click", "a", function() {
+        pageNum = $(this).attr("data-id");
+        operationReport.activeColor(pageNum);
+        operationReport.querybd(seach1, seach2, seach3, pageNum, pageSize);
+      });
+      //首页
+      $("#basic_first").on("click", function() {
+        pageNum = $(this).attr("key");
+        operationReport.activeColor(pageNum);
+        operationReport.querybd(seach1, seach2, seach3, pageNum, pageSize);
+      });
+      //末页
+      $("#basic_end").on("click", function() {
+        $(this).attr("key", pageSum);
+        pageNum = Math.ceil(pageSum / pageSize);
+        operationReport.activeColor(pageNum);
+        operationReport.querybd(seach1, seach2, seach3, pageNum, pageSize);
+      });
+       //上一页
+       $("#basic_prev").on("click", function() {
+        if (pageNum > 1) {
+          pageNum--;
+          operationReport.activeColor(pageNum);
+          operationReport.querybd(seach1, seach2, seach3, pageNum, pageSize);
         }
       });
-      //修改
-      $(document).on("click", ".mod", function() {
-        $("#tan_wrap").show();
-        $("#basic_mod").show();
-        $("#basic_add").hide();
+      //下一页
+      $("#basic_next").on("click", function() {
+        if (pageNum < Math.ceil(pageSum / pageSize)) {
+          pageNum++;
+          operationReport.activeColor(pageNum);
+          operationReport.querybd(seach1, seach2, seach3, pageNum, pageSize);
+        }
       });
-      $("#basic_mod_yes").on("click", function() {
-        $("#tan_wrap").hide();
-        $("#basic_mod").hide();
-        $("#basic_add").hide();
-      });
-      $("#basic_mod_no").on("click", function() {
-        $("#tan_wrap").hide();
-        $("#basic_mod").hide();
-        $("#basic_add").hide();
-      });
-      //新增
-      $("#newAdd").on("click", function() {
-        $("#tan_wrap").show();
-        $("#basic_mod").hide();
-        $("#basic_add").show();
-      });
-
-      $("#basic_add_yes").on("click", function() {
-        $("#tan_wrap").hide();
-        $("#basic_mod").hide();
-        $("#basic_add").hide();
-      });
-      $("#basic_add_no").on("click", function() {
-        $("#tan_wrap").hide();
-        $("#basic_mod").hide();
-        $("#basic_add").hide();
-      });
-
-      $("#basic_mod").on("click", function(event) {
-        event.stopPropagation();
-      });
-      $("#basic_add").on("click", function(event) {
-        event.stopPropagation();
-      });
-      //   分页
-      $("#pageIndex").on("click", "a", function() {
-        firstnum = $(this).attr("data-id");
+      //导出
+      $("#exportExcel").on("click", function() {
+        window.open(localhost + "/equipmentBase/exportExcel");
       });
     },
-    querydata: function(data, pages,oness) {
-      // var oness = 6; //每页最多显示的数量
-      // var ones = data.length < ones ? oness : 6; //每页显示的数量
-      //分页
+    // 获取分页数量
+    fenyenum: function() {
+      $.ajax({
+        dataType: "json",
+        url: localhost + "/equipmentBase/getPage",
+        type: "POST",
+        async: false,
+        data: {
+          projectCode: seach1,
+          type: seach2,
+          name: seach3,
+          pageNum: pageNum,
+          pageSize: pageSize
+        },
+        beforeSend: function(xhr) {
+          xhr.setRequestHeader("login_token", my_token);
+        },
+        success: function(data) {
+          if (data.success === "0") {
+            pageSum = data.result.total;
+            operationReport.fenye(pageSum);
+            operationReport.activeColor(pageNum);
+          }
+        },
+        error: function(err) {}
+      });
+    },
+    querybd: function(seach1, seach2, seach3, pageNum, pageSize) {
+      $.ajax({
+        dataType: "json",
+        url: localhost + "/equipmentBase/getPage",
+        type: "POST",
+        async: false,
+        data: {
+          projectCode: seach1,
+          type: seach2,
+          name: seach3,
+          pageNum: pageNum,
+          pageSize: pageSize
+        },
+        beforeSend: function(xhr) {
+          xhr.setRequestHeader("login_token", my_token);
+        },
+        success: function(data) {
+          if (data.success === "0") {
+            pageSum = data.result.total;
+            operationReport.querydata(data.result.rows);
+          }
+        },
+        error: function(err) {}
+      });
+    },
+    querydata: function(data) {
+      var lidata = "";
+      for (var i = 0; i < data.length; i++) {
+        lidata +=
+          "<li key=" +
+          data[i].id +
+          ">" +
+          '<span><input type="checkbox" name="xz">' +
+          (i + 1) +
+          "</span>" +
+          "<span>" +
+          (data[i].makeTime ? data[i].makeTime : "&nbsp") +
+          "</span>" +
+          "<span key=" +
+          data[i].projectCode +
+          ">" +
+          (data[i].projectName ? data[i].projectName : "&nbsp") +
+          "</span>" +
+          "<span key=" +
+          data[i].type +
+          ">" +
+          (data[i].typeName ? data[i].typeName : "&nbsp") +
+          "</span>" +
+          "<span>" +
+          (data[i].name ? data[i].name : "&nbsp") +
+          "</span>" +
+          "<span>" +
+          (data[i].id ? data[i].id : "&nbsp") +
+          "</span>" +
+          "<span>" +
+          // (data[i].code ? data[i].code : "&nbsp") +
+          "</span>" +
+          "<span>" +
+          (data[i].address ? data[i].address : "&nbsp") +
+          "</span>" +
+          "<span>" +
+          // (data[i].manufacturer ? data[i].manufacturer : "&nbsp") +
+          "</span>" +
+          
+          "</li>";
+      }
+      $("#tableContent").html(lidata);
+    },
+    selepro: function(data) {
+      console.log(data)
+      for (var i = data.length - 1; i >= 0; i--) {
+        $(".projectName").prepend(
+          '<option value="' + data[i].key + '">' + data[i].value + "</option>"
+        );
+        $(".projectNameAdd").prepend(
+          '<option value="' + data[i].key + '">' + data[i].value + "</option>"
+        );
+        $(".updaproName").prepend(
+          '<option value="' + data[i].key + '">' + data[i].value + "</option>"
+        );
+      }
+      $(".projectName").prepend(
+        '<option value="" selected = "selected">全部项目</option>'
+      );
+    },
+    seleequi: function(data) {
+      for (var i = data.length - 1; i >= 0; i--) {
+        $(".equi").prepend(
+          '<option value="' + data[i].key + '">' + data[i].value + "</option>"
+        );
+        $(".updaequi").prepend(
+          '<option value="' + data[i].key + '">' + data[i].value + "</option>"
+        );
+        $(".typeAdd").prepend(
+          '<option value="' + data[i].key + '">' + data[i].value + "</option>"
+        );
+      }
+      $(".equi").prepend(
+        '<option value="" selected = "selected">全部系统</option>'
+      );
+    },    
+    fenye: function(pageSum) {
+      // 分页按钮
       var alis = "";
-      var pagenum = Math.ceil(data.length / oness);
-      for (var i = 0; i < pagenum; i++) {
+      for (var i = 0; i < Math.ceil(pageSum / pageSize); i++) {
         alis +=
           "<a class=a" +
           (i + 1) +
@@ -75,88 +230,19 @@ $(function() {
           "</a>";
       }
       $("#pageIndex").html(alis);
-      //   //查询数据
-      var lidata = "";
-      var firstnum = (pages - 1) * oness; //当前页第一条序号
-      var endnum = pages * oness; //当前页最后一条序号
-      var endnum = data.length > pages * oness ? pages * oness : data.length;
-      for (var i = firstnum; i < endnum; i++) {
-        lidata +=
-          "<li>" +
-          '<span><input type="checkbox" name="xz">' +
-          (i + 1) +
-          "</span>" +
-          "<span>" +
-          data[i].projecttime +
-          "</span>" +
-          "<span>" +
-          data[i].projectName +
-          "</span>" +
-          "<span>" +
-          data[i].eqisystem +
-          "</span>" +
-          "<span>" +
-          data[i].cheequi +
-          "</span>" +
-          "<span>" +
-          data[i].code +
-          "</span>" +
-          "<span>" +
-          data[i].installationSite +
-          "</span>" +
-          "<span>" +
-          (data[i].num?data[i].num:"暂无") +
-          "</span>" +
-          "<span>" +
-          (data[i].perincharge?data[i].perincharge:"暂无") +
-          "</span>" +
-          '<span><a class="mod">修改</a><a class="del">删除</a></span>' +
-          "</li>";
-      }
-      $("#tableContent").html(lidata);
-    },
-    fenye: function(data) {
-      var pages = 1;
-      var oness = 6; //每页最多显示的数量
-      var pagenum = Math.ceil(data.length / oness);
-      operationReport.querydata(data, pages,oness);
-      //首页
-      $("#basic_first").on("click", function() {
-        pages = 1;
-        operationReport.querydata(data, pages,oness);
-        operationReport.activeColor(pages);
-      });
-      //末页
-      $("#basic_end").on("click", function() {
-        pages = Math.ceil(data.length / oness);
-        operationReport.querydata(data, pages,oness);
-        operationReport.activeColor(pages);
-      });
-      //上一页
-      $("#basic_prev").on("click", function() {
-        pages = pages - 1 > 0 ? pages - 1 : 1;
-        operationReport.querydata(data, pages,oness);
-        operationReport.activeColor(pages);
-      });
-      //下一页
-      $("#basic_next").on("click", function() {
-        pages = (pages + 1) < pagenum ? (pages + 1) : pagenum;
-        operationReport.querydata(data, pages,oness);
-        operationReport.activeColor(pages);
-      });
-      //点击数字翻页
-      $("#pageIndex").on("click", "a", function() {
-        pages = Math.round($(this).attr("data-id"));
-        operationReport.querydata(data, pages,oness);
-        operationReport.activeColor(pages);
-      });
     },
     activeColor: function(pages) {
-      $(".a" + pages).css({
-        background: "-webkit-linear-gradient(90deg, #1ea0e3, #32b5ee, #35bcf0)",
-        color: "white"
-      }).siblings().css({background: "#ffffff",
-      color: "#666666"});
+      $(".a" + pages)
+        .css({
+          background:
+            "-webkit-linear-gradient(90deg, #1ea0e3, #32b5ee, #35bcf0)",
+          color: "white"
+        })
+        .siblings()
+        .css({
+          background: "#ffffff",
+          color: "#666666"
+        });
     }
   };
   operationReport.init();
