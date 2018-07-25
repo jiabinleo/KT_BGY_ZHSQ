@@ -5,6 +5,9 @@ $(function() {
   var permission = {
     init: function() {
       permission.listent();
+      // if($(window).height()<550){
+      //   $("#basic_mod").attr({"max-height":"492px"})
+      // }
     },
     listent: function() {
       //表单筛选

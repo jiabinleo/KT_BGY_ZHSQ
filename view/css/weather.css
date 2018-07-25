@@ -179,6 +179,11 @@ section .message {
   width: 22%;
   margin-top: 48px;
 }
+@media (max-height: 550px) {
+  section .message {
+    width: 24%;
+  }
+}
 section .message table tr {
   line-height: 2;
 }

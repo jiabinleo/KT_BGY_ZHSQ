@@ -177,6 +177,12 @@ section .main {
 section .message {
   float: right;
   margin-top: 48px;
+  width: 22%;
+}
+@media (max-height: 550px) {
+  section .message {
+    width: 24%;
+  }
 }
 section .message table tr {
   line-height: 2;

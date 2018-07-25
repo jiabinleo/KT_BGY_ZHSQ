@@ -256,7 +256,6 @@ section {
     display: none;
     position: absolute;
     width: 500px;
-    min-height:521px;
     max-height: 610px;
     left: 50%;
     top: 23%;
@@ -265,8 +264,11 @@ section {
     z-index: 11112;
     background-color: #ffffff;
     border-radius: 5px;
-    // overflow: hidden;
     overflow-y: auto;
+    @media (max-height: 550px) {
+      top: 29%;
+      max-height: 492px;
+    } 
     .basic-qxpz-top {
       padding: 29px;
       color: #333333;

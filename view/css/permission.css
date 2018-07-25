@@ -305,7 +305,6 @@ section .menu-bottom-wrap .menu-bototm .pageIndex a:first-of-type {
   display: none;
   position: absolute;
   width: 500px;
-  min-height: 521px;
   max-height: 610px;
   left: 50%;
   top: 23%;
@@ -315,6 +314,12 @@ section .menu-bottom-wrap .menu-bototm .pageIndex a:first-of-type {
   background-color: #ffffff;
   border-radius: 5px;
   overflow-y: auto;
+}
+@media (max-height: 550px) {
+  .tan-wrap .basic-mod {
+    top: 29%;
+    max-height: 492px;
+  }
 }
 .tan-wrap .basic-mod .basic-qxpz-top {
   padding: 29px;
