@@ -24,7 +24,6 @@ $(function() {
         },
         error: function(err) {}
       });
-
       //laydate
       laydate.render({
         elem: "#makeTimeAdd", //指定元素

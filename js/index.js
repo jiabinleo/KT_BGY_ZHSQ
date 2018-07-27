@@ -1,4 +1,4 @@
-$(function() {
+﻿$(function() {
   var my_token = JSON.parse(sessionStorage.getItem("my_token"));
   var account = JSON.parse(sessionStorage.getItem("account"));
   var userName = JSON.parse(sessionStorage.getItem("userName"));
@@ -256,9 +256,9 @@ $(function() {
       });
       //右侧默认显示页面
       $("#page_wrap").html(
-        '<iframe style="" id="ifPage" src="./view'+
-          data.result[0].children[0].children[0].nemuUrl
-        +'"></iframe>'
+        '<iframe style="" id="ifPage" src="./view' +
+          data.result[0].children[0].children[0].nemuUrl +
+          '"></iframe>'
       );
     }
   };
